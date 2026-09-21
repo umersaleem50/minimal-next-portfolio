@@ -60,7 +60,8 @@ export type ValidSkills =
   | "FastAPI"
   | "SQL"
   | "NoSQL"
-  | "Framer Motion";
+  | "Framer Motion"
+  | "Kotlin";
 
 export type ValidCategory =
   | "Full Stack"
@@ -68,8 +69,9 @@ export type ValidCategory =
   | "Backend"
   | "UI/UX"
   | "Web Dev"
-  | "Mobile Dev"
-  | "3D Modeling";
+  | "Android Dev"
+  | "3D Modeling"
+  | "Kotlin Developer";
 
 export type ValidExpType = "Personal" | "Professional";
 
