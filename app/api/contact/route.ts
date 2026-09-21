@@ -22,6 +22,8 @@ export async function POST(req: Request) {
       `${formLink}/formResponse?${fieldIdName}=${name}&${fieldIdEmail}=${email}&${fieldIdMessage}=${message}&${fieldIdSocial}=${social}`
     );
 
+    console.log(await res.json());
+
     return NextResponse.json("Success!");
   } catch (error) {
     console.log(error);
