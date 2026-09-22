@@ -248,6 +248,40 @@
     --d: 700ms;
     --e: cubic-bezier(0.19, 1, 0.22, 1);
   }
+
+  .glass {
+    --background: 168 65% 95%;
+    --foreground: 225 32% 16%;
+
+    --muted: 168 42% 89%;
+    --muted-foreground: 225 16% 40%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 32% 16%;
+
+    --border: 0 0% 100%;
+    --input: 168 32% 77%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 32% 16%;
+
+    --primary: 161 72% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 292 55% 82%;
+    --secondary-foreground: 225 32% 16%;
+
+    --accent: 171 62% 79%;
+    --accent-foreground: 225 32% 16%;
+
+    --destructive: 350 76% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 161 72% 38%;
+    --radius: 1rem;
+    --d: 700ms;
+    --e: cubic-bezier(0.19, 1, 0.22, 1);
+  }
 }
 
 @layer base {
@@ -266,6 +300,43 @@
       "rlig"1,
       "calt"1;
   }
+
+  .glass body {
+    background-color: #eafbf5;
+    background-image:
+      radial-gradient(circle at 8% 18%, rgba(213, 91, 205, 0.38), transparent 30%),
+      radial-gradient(circle at 88% 12%, rgba(82, 229, 159, 0.58), transparent 35%),
+      radial-gradient(circle at 52% 82%, rgba(126, 228, 225, 0.5), transparent 34%);
+    background-attachment: fixed;
+  }
+
+  .glass .bg-background,
+  .glass .bg-card,
+  .glass .bg-popover {
+    background-color: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(20px);
+  }
+
+  .glass .bg-muted {
+    background-color: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(18px);
+  }
+
+  .glass .border-border {
+    border-color: rgba(255, 255, 255, 0.65);
+  }
+}
+
+.hero-aurora {
+  background:
+    radial-gradient(circle at 9% 81%, rgba(210, 78, 203, 0.88), transparent 31%),
+    radial-gradient(circle at 83% 13%, rgba(81, 226, 156, 0.94), transparent 35%),
+    radial-gradient(circle at 50% 58%, rgba(108, 225, 219, 0.88), transparent 38%),
+    linear-gradient(135deg, #d9b4ef 0%, #d6f3de 48%, #84e9af 100%);
+}
+
+.hero-gradient-button {
+  background: linear-gradient(100deg, #ffbe72 0%, #ec4bc7 46%, #51e5a1 100%);
 }
 
 .card {

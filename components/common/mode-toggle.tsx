@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 import { Icons } from "@/components/common/icons";
 import { Button } from "@/components/ui/button";
@@ -13,19 +14,38 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ModeToggle() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const activeTheme = theme === "system" ? resolvedTheme : theme;
+  const ThemeIcon =
+    activeTheme === "dark"
+      ? Icons.moon
+      : activeTheme === "retro"
+        ? Icons.retro
+        : activeTheme === "cyberpunk"
+          ? Icons.cyberpunk
+          : activeTheme === "paper"
+            ? Icons.paper
+            : activeTheme === "aurora"
+              ? Icons.aurora
+              : activeTheme === "synthwave"
+                ? Icons.synthwave
+                : activeTheme === "glass"
+                  ? Icons.glass
+                  : Icons.sun;
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="h-8 w-8 px-0">
-          <Icons.sun className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 cyberpunk:scale-0 retro:scale-0 paper:scale-0 aurora:scale-0 synthwave:scale-0" />
-          <Icons.moon className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 cyberpunk:scale-0 retro:scale-0 paper:scale-0 aurora:scale-0 synthwave:scale-0" />
-          <Icons.retro className="absolute rotate-90 scale-0 transition-all retro:rotate-0 retro:scale-100" />
-          <Icons.cyberpunk className="absolute rotate-90 scale-0 transition-all cyberpunk:rotate-0 cyberpunk:scale-100" />
-          <Icons.paper className="absolute rotate-90 scale-0 transition-all paper:rotate-0 paper:scale-100" />
-          <Icons.aurora className="absolute rotate-90 scale-0 transition-all aurora:rotate-0 aurora:scale-100" />
-          <Icons.synthwave className="absolute rotate-90 scale-0 transition-all synthwave:rotate-0 synthwave:scale-100" />
+          {mounted ? (
+            <ThemeIcon className="h-4 w-4 transition-transform" />
+          ) : (
+            <Icons.sun className="h-4 w-4" />
+          )}
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
@@ -58,6 +78,10 @@ export function ModeToggle() {
         <DropdownMenuItem onClick={() => setTheme("synthwave")}>
           <Icons.synthwave className="mr-2 h-4 w-4" />
           <span>Synthwave</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("glass")}>
+          <Icons.glass className="mr-2 h-4 w-4" />
+          <span>Glass</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => setTheme("system")}>
