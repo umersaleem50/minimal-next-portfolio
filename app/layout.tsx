@@ -124,6 +124,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             "paper",
             "aurora",
             "synthwave",
+            "glass",
           ]}
         >
           {children}

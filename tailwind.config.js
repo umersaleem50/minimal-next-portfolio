@@ -86,9 +86,10 @@ module.exports = {
     "paper",
     "aurora",
     "synthwave",
+    "glass",
     {
       pattern:
-        /^(.*?)(dark|retro|cyberpunk|paper|aurora|synthwave)([:.])(.*?)$/,
+        /^(.*?)(dark|retro|cyberpunk|paper|aurora|synthwave|glass)([:.])(.*?)$/,
     },
   ],
 };
