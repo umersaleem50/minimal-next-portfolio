@@ -16,13 +16,14 @@ export interface ExperienceInterface {
 
 export const experiences: ExperienceInterface[] = [
   {
-    id: "ubs",
+    id: "soliovation",
     position: "Software Development Engineer",
-    company: "UBS",
-    location: "Mumbai, India",
-    startDate: new Date("2024-08-01"),
-    endDate: "Present",
+    company: "Solinovation",
+    location: "Faisalabad, Punjab, Pakistan",
+    startDate: new Date("2023-02-01"),
+    endDate: new Date("2024-01-01"),
     description: [
+      "Sketched, Wireframed, and Designed the Dashboard for their customers.",
       "Shipped production features within the first month for a trader-facing P&L dashboard used by global stakeholders.",
       "Led the migration from Kendo UI to UBS’s internal design system to reduce UI inconsistencies and improve render performance.",
       "Designed and automated a daily FX rate ingestion pipeline using Databricks (Python, Spark SQL) and Java services.",

@@ -11,14 +11,14 @@ export const contributionsUnsorted: contributionsInterface[] = [
     contibutionDescription:
       "AI console built for Managers, founders, and tech leaders to help improve their team and workflow.",
     repoOwner: "Renaud Vandewalle",
-    link: "https://github.com/namanbarkiya/minimal-next-portfolio",
+    link: "https://github.com/renaudcayus/cayus-ai-website",
   },
   {
     repo: "Stridon Group",
     contibutionDescription:
       "An ecommerce store in Serbia. That provide power and hand tools, protective equipment for professionals and craftsmen, machines and accessories.",
     repoOwner: "Filip Trivan",
-    link: "https://github.com/namanbarkiya/niya-saas-template",
+    link: "https://github.com/filiptrivan/sg-tools",
   },
 ];
 
