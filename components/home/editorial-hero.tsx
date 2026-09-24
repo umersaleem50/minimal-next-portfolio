@@ -4,9 +4,11 @@ import Link from "next/link";
 import { Icons } from "@/components/common/icons";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import profileImg from "@/public/profile-img.jpg";
 
 const partners = [
+  { name: "Solinovation", logo: "/experience/keys-logo.png" },
+  { name: "Muze AI", logo: "/experience/muzeai-logo.png" },
+  { name: "Builtdesign", logo: "/experience/builtdesign-logo.png" },
   { name: "Solinovation", logo: "/experience/keys-logo.png" },
   { name: "Muze AI", logo: "/experience/muzeai-logo.png" },
   { name: "Builtdesign", logo: "/experience/builtdesign-logo.png" },
@@ -42,18 +44,15 @@ export function EditorialHero() {
           </div>
         </div>
 
-        <div className="relative z-20 mx-6 -mt-4 min-h-[430px] overflow-hidden rounded-[1.75rem] border border-white/50 bg-white/25 shadow-2xl backdrop-blur-md sm:mx-10 lg:absolute lg:bottom-20 lg:left-1/2 lg:m-0 lg:h-[68%] lg:w-[30%] lg:-translate-x-1/2">
+        <div className="relative z-20 mx-6 -mt-4 sm:mx-10 lg:absolute lg:bottom-20 lg:left-1/2 lg:m-0 lg:h-[80%] lg:w-[30%] lg:-translate-x-1/2 overflow-hidden">
           <Image
-            src={profileImg}
+            src={"/umar-standing.png"}
             alt="Umar Saleem, software engineer"
-            fill
+            width={385}
+            height={652}
             sizes="(max-width: 1024px) 90vw, 30vw"
-            className="object-cover object-center grayscale-[15%] contrast-[1.03]"
+            className="object-contain object-center"
           />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent p-6 pt-28 text-white">
-            <p className="font-heading text-2xl">Umar Saleem</p>
-            <p className="mt-1 text-sm text-white/80">Software Engineer</p>
-          </div>
         </div>
 
         <div className="relative z-10 flex items-end px-6 pb-12 pt-8 sm:px-10 lg:col-span-5 lg:px-12 lg:pb-36 lg:pl-32 lg:pt-64">
@@ -89,7 +88,7 @@ export function EditorialHero() {
             product-led teams
           </p>
         </div>
-        <div className="grid grid-cols-3 items-center gap-5">
+        <div className="flex items-center justify-between">
           {partners.map((partner) => (
             <div
               key={partner.name}
