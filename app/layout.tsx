@@ -114,8 +114,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="glass"
+          enableSystem={false}
           themes={[
             "light",
             "dark",

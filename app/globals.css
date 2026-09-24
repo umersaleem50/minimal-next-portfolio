@@ -335,8 +335,24 @@
     linear-gradient(135deg, #d9b4ef 0%, #d6f3de 48%, #84e9af 100%);
 }
 
+.hero-gradient-field {
+  background:
+    radial-gradient(circle at 12% 92%, rgba(210, 78, 203, 0.92), transparent 38%),
+    radial-gradient(circle at 88% 10%, rgba(81, 226, 156, 0.96), transparent 43%),
+    radial-gradient(circle at 50% 50%, rgba(108, 225, 219, 0.9), transparent 52%),
+    linear-gradient(135deg, #d99de8 0%, #7de2d6 52%, #62e5a2 100%);
+}
+
 .hero-gradient-button {
   background: linear-gradient(100deg, #ffbe72 0%, #ec4bc7 46%, #51e5a1 100%);
+}
+
+.testimonial-track {
+  scrollbar-width: none;
+}
+
+.testimonial-track::-webkit-scrollbar {
+  display: none;
 }
 
 .card {

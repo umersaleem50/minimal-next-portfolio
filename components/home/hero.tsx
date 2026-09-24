@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import profileImg from "@/public/profile-img.jpg";
+import profileImg from "@/public/profile-img.png";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedText } from "../common/animated-text";
