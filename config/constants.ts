@@ -69,6 +69,7 @@ export type ValidCategory =
   | "Backend"
   | "UI/UX"
   | "Web Dev"
+  | "Mobile Dev"
   | "Android Dev"
   | "3D Modeling"
   | "Kotlin Developer";

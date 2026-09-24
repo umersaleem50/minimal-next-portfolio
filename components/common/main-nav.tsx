@@ -47,7 +47,7 @@ export function MainNav({ items, children }: MainNavProps) {
   }, [pathname]);
 
   return (
-    <div className="flex gap-6 md:gap-10">
+    <div className="flex w-full items-center justify-between gap-6 md:gap-10">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -60,7 +60,7 @@ export function MainNav({ items, children }: MainNavProps) {
         </Link>
       </motion.div>
       {items?.length ? (
-        <nav className="hidden gap-6 md:flex items-center">
+        <nav className="hidden items-center gap-5 md:flex lg:gap-7">
           {items?.map((item, index) => (
             <motion.div
               key={index}

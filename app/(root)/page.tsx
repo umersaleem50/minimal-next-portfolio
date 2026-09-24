@@ -10,7 +10,8 @@ import { Icons } from "@/components/common/icons";
 import ContributionCard from "@/components/contributions/contribution-card";
 import ExperienceCard from "@/components/experience/experience-card";
 import { EditorialHero } from "@/components/home/editorial-hero";
-import { Hero } from "@/components/home/hero";
+import { Services } from "@/components/home/services";
+import { Testimonials } from "@/components/home/testimonials";
 import ProjectCard from "@/components/projects/project-card";
 import SkillsCard from "@/components/skills/skills-card";
 import { Button } from "@/components/ui/button";
@@ -75,8 +76,9 @@ export default function IndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
-      <Hero />
       <EditorialHero />
+      <Services />
+      <Testimonials />
       <AnimatedSection
         direction="up"
         className="container space-y-6 bg-muted py-10 my-14"

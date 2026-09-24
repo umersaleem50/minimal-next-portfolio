@@ -2,13 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Icons } from "@/components/common/icons";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 const partners = [
-  { name: "Solinovation", logo: "/experience/keys-logo.png" },
-  { name: "Muze AI", logo: "/experience/muzeai-logo.png" },
-  { name: "Builtdesign", logo: "/experience/builtdesign-logo.png" },
   { name: "Solinovation", logo: "/experience/keys-logo.png" },
   { name: "Muze AI", logo: "/experience/muzeai-logo.png" },
   { name: "Builtdesign", logo: "/experience/builtdesign-logo.png" },
@@ -18,92 +13,80 @@ export function EditorialHero() {
   return (
     <section
       aria-labelledby="editorial-hero-title"
-      className="relative mb-24 min-h-[760px] border border-white/40 bg-white/45 shadow-[0_32px_100px_-50px_rgba(37,224,166,0.75)] backdrop-blur-2xl"
+      className="relative isolate min-h-[760px] overflow-hidden bg-white text-slate-900 lg:min-h-[calc(100vh-5rem)]"
     >
-      <div className="hero-aurora absolute inset-0 -z-20" aria-hidden="true" />
+      {/* The two colour fields mirror the editorial composition in the reference. */}
       <div
-        className="absolute inset-x-0 top-0 -z-10 h-[46%] bg-white/50 backdrop-blur-[2px]"
+        className="hero-gradient-field absolute right-0 top-0 -z-20 h-[34%] w-[52%] sm:h-[43%] lg:w-[54%]"
+        aria-hidden="true"
+      />
+      <div
+        className="hero-gradient-field absolute bottom-20 left-0 -z-20 h-[34%] w-[56%] rotate-180 sm:h-[40%] lg:w-[49%]"
         aria-hidden="true"
       />
 
-      <div className="grid min-h-[680px] grid-cols-1 lg:grid-cols-12">
-        <div className="relative z-10 flex items-center px-6 pb-12 pt-16 sm:px-10 lg:col-span-7 lg:px-14 lg:pb-36 lg:pt-20">
-          <div className="max-w-3xl rounded-[1.75rem] border border-white/60 bg-white/65 p-7 shadow-[0_24px_70px_-42px_rgba(45,20,75,0.55)] backdrop-blur-xl sm:p-10 lg:bg-white/72 lg:p-12">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-slate-600 sm:text-sm">
-              SaaS · Web · Android
+      <div className="mx-auto grid min-h-[680px] max-w-[1600px] grid-cols-1 px-5 pb-32 pt-16 sm:px-8 lg:grid-cols-12 lg:px-12 lg:pb-28 lg:pt-0">
+        <div className="relative z-10 flex items-start lg:col-span-7 lg:items-center">
+          <div className="max-w-[760px] lg:-translate-y-16">
+            <p className="text-xl font-medium tracking-tight text-slate-600 sm:text-3xl lg:text-5xl">
+              Your Business Logic
             </p>
-            <h2
+            <h1
               id="editorial-hero-title"
-              className="max-w-2xl text-balance text-4xl leading-[0.98] text-slate-800 sm:text-6xl lg:text-7xl"
+              className="relative z-0 mt-3 font-serif text-5xl font-normal italic leading-[0.95] tracking-[-0.04em] text-slate-800 sm:text-7xl lg:text-[6.25rem]"
             >
-              Business logic behind{" "}
-              <span className="font-serif font-normal italic">
-                great software.
-              </span>
-            </h2>
+              behind Great Software
+            </h1>
           </div>
         </div>
 
-        <div className="relative z-20 mx-6 -mt-4 sm:mx-10 lg:absolute lg:bottom-20 lg:left-1/2 lg:m-0 lg:h-[80%] lg:w-[30%] lg:-translate-x-1/2 overflow-hidden">
+        <div className="relative z-20 col-span-full row-start-2 -mt-10 flex justify-center lg:pointer-events-none lg:absolute lg:inset-y-0 lg:left-1/2 lg:mt-0 lg:w-[35%] lg:-translate-x-1/2 lg:items-end">
           <Image
-            src={"/umar-standing.png"}
+            src="/profile-img.png"
             alt="Umar Saleem, software engineer"
-            width={385}
-            height={652}
-            sizes="(max-width: 1024px) 90vw, 30vw"
-            className="object-contain object-center"
+            width={355}
+            height={535}
+            priority
+            sizes="(max-width: 1024px) 70vw, 35vw"
+            className="h-auto max-h-[570px] w-auto max-w-[78vw] object-contain drop-shadow-[0_28px_24px_rgba(15,23,42,0.14)] lg:max-h-[72vh]"
           />
         </div>
 
-        <div className="relative z-10 flex items-end px-6 pb-12 pt-8 sm:px-10 lg:col-span-5 lg:px-12 lg:pb-36 lg:pl-32 lg:pt-64">
-          <div className="w-full rounded-[1.75rem] border border-white/60 bg-white/65 p-7 shadow-[0_24px_70px_-42px_rgba(45,20,75,0.55)] backdrop-blur-xl sm:p-9">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/70 bg-slate-900/5 px-4 py-2 text-sm font-medium text-slate-800">
+        <div className="relative z-30 flex items-end pt-8 lg:col-span-5 lg:pl-28 lg:pb-32 lg:pt-64">
+          <div className="ml-auto max-w-sm bg-white/85 p-5 backdrop-blur-sm sm:p-7">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-medium">
               <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
-              Available for select projects
+              Available now
             </div>
-            <p className="max-w-sm text-base leading-7 text-slate-700">
-              I build polished landing pages, scalable SaaS products, and
-              Android experiences—turning a clear business idea into dependable
-              software.
+            <p className="text-base leading-7 text-slate-700 sm:text-lg">
+              I build high-converting landing pages, dynamic dashboards, and
+              scalable SaaS products that move your business forward.
             </p>
             <Link
               href="/contact"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "hero-gradient-button mt-7 rounded-full border-0 px-6 text-slate-950 shadow-lg hover:opacity-90"
-              )}
+              className="hero-gradient-button mt-7 inline-flex h-12 items-center rounded-full px-6 font-semibold text-slate-950 shadow-[0_12px_35px_-14px_rgba(226,70,190,0.8)] transition hover:-translate-y-0.5 hover:shadow-lg"
             >
-              Start a project <Icons.arrowRight className="ml-2 h-4 w-4" />
+              Build your product
+              <Icons.arrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
         </div>
       </div>
 
-      <div className="relative z-30 grid gap-6 border-t border-white/55 bg-white/55 px-7 py-6 backdrop-blur-2xl sm:px-10 lg:absolute lg:inset-x-0 lg:bottom-0 lg:grid-cols-[1fr_2fr] lg:items-center lg:px-14">
-        <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-            Experience across
-          </p>
-          <p className="mt-1 font-serif text-xl italic text-slate-800">
-            product-led teams
-          </p>
-        </div>
-        <div className="flex items-center justify-between">
-          {partners.map((partner) => (
-            <div
-              key={partner.name}
-              className="flex min-w-0 items-center justify-center gap-2 text-center text-xs font-semibold text-slate-700 sm:text-sm"
-            >
-              <Image
-                src={partner.logo}
-                alt=""
-                width={34}
-                height={34}
-                className="h-8 w-8 rounded-md object-contain grayscale"
-              />
-              <span className="hidden truncate sm:inline">{partner.name}</span>
-            </div>
-          ))}
+      <div className="absolute inset-x-0 bottom-0 z-30 border-y border-slate-200/80 bg-white/80 px-5 py-5 backdrop-blur-xl sm:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="shrink-0">
+            <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Trusted by</p>
+            <p className="font-serif text-lg italic text-slate-800">product-led teams</p>
+          </div>
+          <div className="flex items-center justify-between gap-8 sm:justify-end lg:gap-16">
+            {partners.map((partner) => (
+              <div key={partner.name} className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                <Image src={partner.logo} alt="" width={34} height={34} className="h-8 w-8 object-contain grayscale" />
+                <span className="hidden sm:inline">{partner.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
