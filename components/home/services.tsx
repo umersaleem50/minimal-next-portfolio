@@ -29,7 +29,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="bg-white px-5 py-24 text-slate-900 sm:px-8 lg:px-12 lg:py-32">
+    <section id="services" className="scroll-mt-28 bg-white px-5 py-24 text-slate-900 sm:px-8 lg:px-12 lg:py-32">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid gap-8 border-b border-slate-200 pb-12 lg:grid-cols-2 lg:items-end">
           <div>

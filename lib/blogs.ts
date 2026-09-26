@@ -81,11 +81,11 @@ export async function getBlogPost(slug: string): Promise<BlogPost> {
   };
 }
 
-/** Returns the featured blogs (marked featured: true), falling back to the latest 3 */
+/** Returns the featured blogs (marked featured: true), falling back to the latest 2 */
 export function getFeaturedBlogs(): BlogMeta[] {
   const all = getAllBlogsMeta();
   const featured = all.filter((b) => b.featured);
-  return featured.length > 0 ? featured.slice(0, 3) : all.slice(0, 3);
+  return featured.length > 0 ? featured.slice(0, 2) : all.slice(0, 2);
 }
 
 /** Estimates reading time from raw markdown content */
