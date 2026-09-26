@@ -3,11 +3,12 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 
+import { HomeSection, ViewAllLink } from "@/components/home/home-section";
 import { cn } from "@/lib/utils";
 import { PortfolioCard } from "./portfolio-card";
 import { PortfolioProps } from "./types";
 
-export function Portfolio({ projects }: PortfolioProps) {
+export function Portfolio({ projects, eyebrow, title, description }: PortfolioProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
@@ -27,27 +28,31 @@ export function Portfolio({ projects }: PortfolioProps) {
     setActive(Math.round(track.scrollLeft / track.clientWidth));
   };
 
-  const controls = (
-    <div className="flex items-center gap-3">
-      <button
-        onClick={() => slide(-1)}
-        aria-label="Previous project"
-        className="grid h-12 w-12 place-items-center rounded-full border border-border bg-background transition hover:bg-foreground hover:text-background"
-      >
-        <ArrowLeft className="h-5 w-5" />
-      </button>
-      <button
-        onClick={() => slide(1)}
-        aria-label="Next project"
-        className="grid h-12 w-12 place-items-center rounded-full bg-foreground text-background transition hover:opacity-80"
-      >
-        <ArrowRight className="h-5 w-5" />
-      </button>
-    </div>
-  );
-
   return (
-    <div className="mx-auto w-full max-w-[85rem]">
+    <HomeSection
+      id="projects"
+      eyebrow={eyebrow}
+      title={title}
+      description={description}
+      actions={
+        <>
+          <button
+            onClick={() => slide(-1)}
+            aria-label="Previous project"
+            className="grid h-12 w-12 place-items-center rounded-full border border-slate-300 transition hover:bg-slate-950 hover:text-white"
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={() => slide(1)}
+            aria-label="Next project"
+            className="grid h-12 w-12 place-items-center rounded-full bg-slate-950 text-white transition hover:bg-emerald-700"
+          >
+            <ArrowRight className="h-5 w-5" />
+          </button>
+        </>
+      }
+    >
       <div
         ref={trackRef}
         onScroll={onScroll}
@@ -64,7 +69,7 @@ export function Portfolio({ projects }: PortfolioProps) {
         ))}
       </div>
 
-      <div className="mt-8 flex items-center justify-between gap-6 border-t border-border pt-6">
+      <div className="mt-10 flex items-center justify-between gap-6 border-t border-slate-200 pt-8">
         <div className="flex items-center gap-2">
           {projects.map((project, index) => (
             <button
@@ -72,18 +77,18 @@ export function Portfolio({ projects }: PortfolioProps) {
               onClick={() => goTo(index)}
               aria-label={`Go to ${project.title}`}
               className={cn(
-                "h-2 rounded-full bg-foreground transition-all duration-500",
-                index === active ? "w-8" : "w-2 opacity-25 hover:opacity-50",
+                "h-2 rounded-full bg-slate-950 transition-all duration-500",
+                index === active ? "w-8" : "w-2 opacity-20 hover:opacity-40",
               )}
             />
           ))}
-          <span className="ml-3 text-sm tabular-nums text-muted-foreground">
+          <span className="ml-3 font-mono text-sm tabular-nums text-slate-400">
             {String(active + 1).padStart(2, "0")} /{" "}
             {String(projects.length).padStart(2, "0")}
           </span>
         </div>
-        {controls}
+        <ViewAllLink href="/projects" label="All projects" />
       </div>
-    </div>
+    </HomeSection>
   );
 }
