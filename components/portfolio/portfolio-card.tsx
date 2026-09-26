@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { Icons } from "@/components/common/icons";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { PortfolioHeaders } from "./portfolio-header";
 import { RotatingImage } from "./rotating-image";
@@ -28,7 +27,7 @@ export function PortfolioCard({
         alt={`${title} screenshot`}
         sizes="(min-width: 1024px) 50vw, 42vw"
         className={cn(
-          "lg:col-span-6 md:col-span-5 col-span-1 w-full lg:h-[34rem] md:h-[28rem] sm:block hidden border border-border",
+          "lg:col-span-6 md:col-span-5 col-span-1 w-full lg:h-[34rem] md:h-[28rem] sm:block hidden border border-slate-200",
           options.reverse && "md:order-last",
         )}
       />
@@ -44,7 +43,7 @@ export function PortfolioCard({
           alt={`${title} screenshot`}
           sizes="(min-width: 768px) 35vw, 100vw"
           startDelay={2500}
-          className="w-full h-[20rem] border border-border"
+          className="w-full h-[20rem] border border-slate-200"
         />
       </div>
       <div
@@ -54,16 +53,17 @@ export function PortfolioCard({
         )}
       >
         <div className="md:mb-10 md:-rotate-90 md:-translate-y-full whitespace-nowrap">
-          <p className="md:text-3xl sm:text-2xl text-xl font-serif text-muted-foreground">
+          <p className="md:text-3xl sm:text-2xl text-xl font-serif text-slate-500">
             {results.at(0)}
           </p>
-          <p className="text-sm text-muted-foreground">{results.at(1)}</p>
+          <p className="text-sm text-slate-500">{results.at(1)}</p>
         </div>
-        <Link href={href} className="w-1/2 sm:w-1/3 md:w-full">
-          <Button variant="outline" className="w-full rounded-xl">
-            Case Study
-            <Icons.chevronRight className="ml-1 h-4 w-4" />
-          </Button>
+        <Link
+          href={href}
+          className="group inline-flex h-11 w-1/2 items-center justify-center gap-1 rounded-full bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-emerald-700 sm:w-1/3 md:w-full"
+        >
+          Case Study
+          <Icons.chevronRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
         </Link>
       </div>
     </div>

@@ -16,14 +16,14 @@ export function PortfolioHeaders({
     >
       <AnimatedText
         as="h3"
-        className="lg:text-3xl md:text-2xl text-xl leading-snug font-heading text-foreground"
+        className="lg:text-3xl md:text-2xl text-xl leading-snug font-heading text-slate-900"
       >
         {title}
       </AnimatedText>
       <AnimatedText
         as="p"
         delay={0.1}
-        className="sm:text-base text-sm text-muted-foreground line-clamp-3"
+        className="sm:text-base text-sm text-slate-600 line-clamp-3"
       >
         {subtitle}
       </AnimatedText>

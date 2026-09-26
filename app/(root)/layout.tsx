@@ -1,5 +1,5 @@
 import { MainNav } from "@/components/common/main-nav";
-import { SiteFooter } from "@/components/common/site-footer";
+import FooterModule from "@/components/new-blogs/footer";
 import { routesConfig } from "@/config/routes";
 
 interface MarketingLayoutProps {
@@ -15,7 +15,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
         </div>
       </header>
       <main className="flex-1">{children}</main>
-      <SiteFooter />
+      <FooterModule />
     </div>
   );
 }

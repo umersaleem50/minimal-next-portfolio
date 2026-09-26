@@ -36,7 +36,7 @@ export function RotatingImage({
   const src = images[index];
 
   return (
-    <div className={cn("relative overflow-hidden rounded-3xl bg-background", className)}>
+    <div className={cn("relative overflow-hidden rounded-3xl bg-slate-100", className)}>
       <AnimatePresence initial={false}>
         <motion.div
           key={src}

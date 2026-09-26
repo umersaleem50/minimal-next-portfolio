@@ -14,6 +14,9 @@ export interface PortfolioCardProps extends PortfolioItem {
 
 export interface PortfolioProps {
   projects: PortfolioItem[];
+  eyebrow: string;
+  title: string;
+  description?: string;
 }
 
 export interface PortfolioHeaderProps {
