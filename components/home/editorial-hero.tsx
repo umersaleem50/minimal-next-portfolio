@@ -42,7 +42,7 @@ export function EditorialHero() {
 
         <div className="relative z-20 col-span-full row-start-2 -mt-10 flex justify-center lg:pointer-events-none lg:absolute lg:inset-y-0 lg:left-1/2 lg:mt-0 lg:w-[35%] lg:-translate-x-1/2 lg:items-end">
           <Image
-            src="/profile-img.png"
+            src="/umar-standing.png"
             alt="Umar Saleem, software engineer"
             width={355}
             height={535}
@@ -76,13 +76,26 @@ export function EditorialHero() {
       <div className="absolute inset-x-0 bottom-0 z-30 border-y border-slate-200/80 bg-white/80 px-5 py-5 backdrop-blur-xl sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-[1600px] flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="shrink-0">
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Trusted by</p>
-            <p className="font-serif text-lg italic text-slate-800">product-led teams</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
+              Trusted by
+            </p>
+            <p className="font-serif text-lg italic text-slate-800">
+              product-led teams
+            </p>
           </div>
           <div className="flex items-center justify-between gap-8 sm:justify-end lg:gap-16">
             {partners.map((partner) => (
-              <div key={partner.name} className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                <Image src={partner.logo} alt="" width={34} height={34} className="h-8 w-8 object-contain grayscale" />
+              <div
+                key={partner.name}
+                className="flex items-center gap-2 text-sm font-semibold text-slate-700"
+              >
+                <Image
+                  src={partner.logo}
+                  alt=""
+                  width={34}
+                  height={34}
+                  className="h-8 w-8 object-contain grayscale"
+                />
                 <span className="hidden sm:inline">{partner.name}</span>
               </div>
             ))}
