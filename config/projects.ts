@@ -593,3 +593,25 @@ export const Projects: ProjectInterface[] = [
 ];
 
 export const featuredProjects = Projects.slice(0, 3);
+
+const isScreenshot = (src: string) => !/(logo|profile-img)\.png$/.test(src);
+
+export const portfolioProjects = Projects.map((project) => ({
+  project,
+  images: Array.from(
+    new Set(project.pagesInfoArr.flatMap((page) => page.imgArr)),
+  ).filter(isScreenshot),
+}))
+  .filter(({ images }) => images.length >= 2)
+  .slice(0, 5)
+  .map(({ project, images }) => ({
+    id: project.id,
+    title: project.companyName,
+    description: project.shortDescription,
+    results: [
+      project.endDate.getFullYear().toString(),
+      project.category.slice(0, 2).join(" · "),
+    ],
+    href: `/projects/${project.id}`,
+    images,
+  }));

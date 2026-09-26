@@ -1,9 +1,10 @@
-import { InteractiveHoverButton } from "@/components/InteractiveUIButton";
-
-import SanityImage from "@/components/SanityImage";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
+
+import { Icons } from "@/components/common/icons";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { PortfolioHeaders } from "./portfolio-header";
+import { RotatingImage } from "./rotating-image";
 import { PortfolioCardProps } from "./types";
 
 export function PortfolioCard({
@@ -11,33 +12,26 @@ export function PortfolioCard({
   title,
   description,
   results,
-  page,
-  cover,
-  options = { reverse: index % 2 !== 0 ? false : true },
+  href,
+  images,
+  options = { reverse: index % 2 === 0 },
 }: PortfolioCardProps) {
-  const [firstCover, secondCover] = cover;
+  // Split screenshots between the two frames so they never show the same image.
+  const primaryImages = images.filter((_, i) => i % 2 === 0);
+  const secondaryImages = images.filter((_, i) => i % 2 === 1);
   const indexedTitle = `${index}. ${title}`;
+
   return (
-    <div
-      className={cn(
-        "max-w-[85rem] mx-auto grid md:grid-cols-12 grid-cols-1 lg:gap-x-6 md:gap-x-4 items-end lg:pb-24 md:pb-16 border-b border-border lg:mb-24 md:mb-20 sm:mb-16 mb-14 last:mb-0 last:pb-0 last:border-0",
-      )}
-    >
-      <div
+    <div className="grid md:grid-cols-12 grid-cols-1 lg:gap-x-6 md:gap-x-4 items-end">
+      <RotatingImage
+        images={primaryImages}
+        alt={`${title} screenshot`}
+        sizes="(min-width: 1024px) 50vw, 42vw"
         className={cn(
-          "lg:col-span-6 md:col-span-5 col-span-1 w-full lg:h-[42rem] md:h-[30rem] sm:inline-block hidden relative bg-fixed rounded-3xl overflow-hidden",
+          "lg:col-span-6 md:col-span-5 col-span-1 w-full lg:h-[34rem] md:h-[28rem] sm:block hidden border border-border",
           options.reverse && "md:order-last",
         )}
-      >
-        {firstCover ? (
-          <SanityImage
-            image={firstCover}
-            fill
-            alt={firstCover?.alt}
-            objectFit={firstCover?.objectFit}
-          />
-        ) : null}
-      </div>
+      />
       <div
         className={cn(
           "lg:col-span-4 md:col-span-5 col-span-1",
@@ -45,39 +39,32 @@ export function PortfolioCard({
         )}
       >
         <PortfolioHeaders title={indexedTitle} subtitle={description} />
-        <div className="w-full h-[24rem] relative rounded-3xl overflow-hidden">
-          {secondCover ? (
-            <SanityImage
-              image={secondCover}
-              fill
-              alt={secondCover?.alt}
-              objectFit={secondCover?.objectFit}
-            />
-          ) : null}
-        </div>
+        <RotatingImage
+          images={secondaryImages}
+          alt={`${title} screenshot`}
+          sizes="(min-width: 768px) 35vw, 100vw"
+          startDelay={2500}
+          className="w-full h-[20rem] border border-border"
+        />
       </div>
       <div
         className={cn(
-          "md:col-span-2 col-span-1 flex flex-row md:inline-block gap-x-8 md:gap-x-0 justify-between py-8 md:py-0 items-end",
+          "md:col-span-2 col-span-1 flex flex-row md:block gap-x-8 md:gap-x-0 justify-between py-8 md:py-0 items-end",
           options.reverse && "md:order-first",
         )}
       >
-        <div className="md:mb-10 md:-rotate-90 md:-translate-y-full">
+        <div className="md:mb-10 md:-rotate-90 md:-translate-y-full whitespace-nowrap">
           <p className="md:text-3xl sm:text-2xl text-xl font-serif text-muted-foreground">
             {results.at(0)}
           </p>
-          <p className="text-sm font-sans text-muted-foreground">
-            {results.at(1)}
-          </p>
+          <p className="text-sm text-muted-foreground">{results.at(1)}</p>
         </div>
-        <InteractiveHoverButton className="w-1/2 sm:w-1/3 md:w-full">
-          <Link
-            href={`/${page?.slug?.current}` || "/not-found"}
-            className="w-full"
-          >
+        <Link href={href} className="w-1/2 sm:w-1/3 md:w-full">
+          <Button variant="outline" className="w-full rounded-xl">
             Case Study
-          </Link>
-        </InteractiveHoverButton>
+            <Icons.chevronRight className="ml-1 h-4 w-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   );

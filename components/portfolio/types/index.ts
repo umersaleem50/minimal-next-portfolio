@@ -1,25 +1,32 @@
-import { SanityImageProps } from "@/components/SanityImage";
-import { SanityPage } from "@/sanity/types/globals";
-
-export interface PortfolioCardProps {
-  index: number;
+export interface PortfolioItem {
+  id: string;
   title: string;
   description: string;
   results: string[];
-  page: SanityPage;
+  href: string;
+  images: string[];
+}
+
+export interface PortfolioCardProps extends PortfolioItem {
+  index: number;
   options?: { reverse: boolean };
-  cover: SanityImageProps[];
 }
 
 export interface PortfolioProps {
-  module: {
-    metaData: PortfolioHeaderProps;
-    projects: PortfolioCardProps[];
-  };
+  projects: PortfolioItem[];
 }
 
 export interface PortfolioHeaderProps {
   title: string;
   subtitle: string;
+  className?: string;
+}
+
+export interface RotatingImageProps {
+  images: string[];
+  alt: string;
+  sizes: string;
+  interval?: number;
+  startDelay?: number;
   className?: string;
 }
