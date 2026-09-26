@@ -80,7 +80,7 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
                 delay={0.2}
                 className={cn(onRight ? "md:order-2" : "md:order-1")}
               >
-                <ExperienceCard experience={experience} />
+                <ExperienceCard experience={experience} variant="dark" />
               </AnimatedSection>
             </li>
           );
