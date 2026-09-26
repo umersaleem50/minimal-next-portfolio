@@ -73,47 +73,53 @@ export function EditorialHero() {
 
         <div className="lg:col-span-5">
           <div className="rounded-[2rem] border border-slate-200 bg-white/90 p-6 shadow-[0_30px_60px_-30px_rgba(15,23,42,0.25)] backdrop-blur-xl sm:p-8">
-            <div className="overflow-hidden rounded-2xl bg-slate-100">
-              <Image
-                src="/profile-photo.jpg"
-                alt="Umar Saleem"
-                width={100}
-                height={100}
-                priority
-                sizes="(max-width: 200px) 80vw, 360px"
-                className="aspect-[1/1] w-full object-cover"
-              />
-            </div>
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-stretch">
+              <div className="relative h-72 md:h-56 w-full shrink-0 overflow-hidden rounded-2xl bg-slate-100 lg:h-auto lg:w-2/4">
+                <Image
+                  src="/profile-picture.jpg"
+                  alt="Umar Saleem"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 80vw, 200px"
+                  className="object-cover object-center"
+                />
+              </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl bg-slate-50 p-4">
-                  <p className="font-heading text-2xl text-slate-900 sm:text-3xl">
-                    {stat.value}
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-slate-500">
-                    {stat.label}
-                  </p>
+              <div className="flex-1">
+                <div className="grid grid-cols-2 gap-4">
+                  {stats.map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="rounded-2xl bg-slate-50 p-4"
+                    >
+                      <p className="font-heading text-2xl text-slate-900 sm:text-3xl">
+                        {stat.value}
+                      </p>
+                      <p className="mt-1 text-xs leading-snug text-slate-500">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            <div className="mt-8 border-t border-slate-200 pt-6">
-              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                Trusted by
-              </p>
-              <div className="mt-4 flex items-center gap-6">
-                {partners.map((partner) => (
-                  <Image
-                    key={partner.name}
-                    src={partner.logo}
-                    alt={partner.name}
-                    title={partner.name}
-                    width={30}
-                    height={30}
-                    className="h-7 w-7 object-contain grayscale transition hover:grayscale-0"
-                  />
-                ))}
+                <div className="mt-8 border-t border-slate-200 pt-6">
+                  <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
+                    Trusted by
+                  </p>
+                  <div className="mt-4 flex items-center gap-6">
+                    {partners.map((partner) => (
+                      <Image
+                        key={partner.name}
+                        src={partner.logo}
+                        alt={partner.name}
+                        title={partner.name}
+                        width={30}
+                        height={30}
+                        className="h-7 w-7 object-contain grayscale transition hover:grayscale-0"
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
