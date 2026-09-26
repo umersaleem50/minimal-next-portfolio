@@ -14,9 +14,6 @@ interface Testimonial {
   avatar?: string;
 }
 
-// Quotes longer than this get a full-width card so they don't get cramped.
-const LONG_QUOTE_LENGTH = 180;
-
 const avatarGradients = [
   "from-emerald-300 to-teal-500",
   "from-sky-300 to-indigo-500",
@@ -57,7 +54,7 @@ export function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="overflow-hidden bg-slate-950 px-5 py-24 text-white sm:px-8 lg:px-12 lg:py-32">
+    <section id="testimonials" className="scroll-mt-28 overflow-hidden bg-slate-950 px-5 py-24 text-white sm:px-8 lg:px-12 lg:py-32">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-12 flex items-end justify-between gap-8">
           <div>
@@ -71,29 +68,22 @@ export function Testimonials() {
         </div>
 
         <div ref={trackRef} className="testimonial-track -mr-5 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-5 sm:-mr-8 lg:-mr-12">
-          {testimonials.map((testimonial, index) => {
-            const isLong = testimonial.quote.length > LONG_QUOTE_LENGTH;
-            return (
-              <article
-                key={`${testimonial.name}-${index}`}
-                className={cn(
-                  "flex min-h-[350px] w-[86vw] shrink-0 snap-start flex-col rounded-[2rem] border border-white/10 bg-white/[0.07] p-7 backdrop-blur-xl sm:p-10",
-                  // Long quotes span the visible track width (track width minus its negative right margin).
-                  isLong ? "sm:w-[calc(100%-2rem)] lg:w-[calc(100%-3rem)]" : "max-w-[500px]",
-                )}
-              >
-                <Quote className="h-9 w-9 text-emerald-300" aria-hidden="true" />
-                <blockquote className={cn("mb-10 mt-12 font-serif text-2xl italic leading-[1.45] text-slate-100 sm:text-3xl", isLong && "max-w-5xl")}>“{testimonial.quote}”</blockquote>
-                <div className="mt-auto flex items-center gap-4 border-t border-white/10 pt-6">
-                  <Avatar name={testimonial.name} avatar={testimonial.avatar} index={index} />
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="mt-1 text-sm text-slate-400">{testimonial.role}</p>
-                  </div>
+          {testimonials.map((testimonial, index) => (
+            <article
+              key={`${testimonial.name}-${index}`}
+              className="flex h-[380px] w-[86vw] shrink-0 snap-start flex-col rounded-[2rem] border border-white/10 bg-white/[0.07] p-7 backdrop-blur-xl sm:w-[440px] sm:p-10"
+            >
+              <Quote className="h-9 w-9 shrink-0 text-emerald-300" aria-hidden="true" />
+              <blockquote className="mb-10 mt-12 line-clamp-6 font-serif text-2xl italic leading-[1.45] text-slate-100 sm:text-3xl">“{testimonial.quote}”</blockquote>
+              <div className="mt-auto flex items-center gap-4 border-t border-white/10 pt-6">
+                <Avatar name={testimonial.name} avatar={testimonial.avatar} index={index} />
+                <div>
+                  <p className="font-semibold">{testimonial.name}</p>
+                  <p className="mt-1 text-sm text-slate-400">{testimonial.role}</p>
                 </div>
-              </article>
-            );
-          })}
+              </div>
+            </article>
+          ))}
         </div>
 
         <div className="mt-5 flex gap-3 sm:hidden">

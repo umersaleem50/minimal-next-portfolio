@@ -11,13 +11,11 @@ import { Services } from "@/components/home/services";
 import { Testimonials } from "@/components/home/testimonials";
 import BlogsModule from "@/components/new-blogs/blogs";
 import { Portfolio } from "@/components/portfolio/portfolio";
-import SkillsCard from "@/components/skills/skills-card";
 import { featuredContributions } from "@/config/contributions";
 import { experiences } from "@/config/experience";
 import { pagesConfig } from "@/config/pages";
 import { portfolioProjects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
-import { featuredSkills } from "@/config/skills";
 import { getFeaturedBlogs } from "@/lib/blogs";
 
 export const metadata: Metadata = {
@@ -74,15 +72,11 @@ export default function IndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
+      {/* Attention */}
       <EditorialHero />
+
+      {/* Interest: what I do, the track record behind it, and proof of the work */}
       <Services />
-      <Testimonials />
-      <Portfolio
-        projects={portfolioProjects}
-        eyebrow="Selected work"
-        title="Anyone can make promises. Here's the proof."
-        description={pagesConfig.projects.description}
-      />
       <HomeSection
         id="experience"
         tone="dark"
@@ -93,6 +87,15 @@ export default function IndexPage() {
       >
         <ExperienceTimeline experiences={experiences.slice(0, 3)} />
       </HomeSection>
+      <Portfolio
+        projects={portfolioProjects}
+        eyebrow="Selected work"
+        title="Anyone can make promises. Here's the proof."
+        description={pagesConfig.projects.description}
+      />
+
+      {/* Desire: social proof and trust signals */}
+      <Testimonials />
       <HomeSection
         id="contributions"
         eyebrow={pagesConfig.contributions.title}
@@ -112,15 +115,8 @@ export default function IndexPage() {
       >
         <BlogsModule posts={featuredBlogs} author={blogAuthor} />
       </HomeSection>
-      <HomeSection
-        id="skills"
-        eyebrow={pagesConfig.skills.title}
-        title="The toolkit behind the work."
-        description={pagesConfig.skills.description}
-        actions={<ViewAllLink href="/skills" />}
-      >
-        <SkillsCard skills={featuredSkills} />
-      </HomeSection>
+
+      {/* Action */}
       <ContactSection />
     </ClientPageWrapper>
   );

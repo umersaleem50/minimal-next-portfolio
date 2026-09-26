@@ -25,7 +25,7 @@ export function HomeSection({ id, tone = "light", eyebrow, title, description, a
     <section
       id={id}
       className={cn(
-        "overflow-hidden px-5 py-24 sm:px-8 lg:px-12 lg:py-32",
+        "scroll-mt-28 overflow-hidden px-5 py-24 sm:px-8 lg:px-12 lg:py-32",
         dark ? "bg-slate-950 text-white" : "border-t border-slate-200 bg-white text-slate-900",
         className,
       )}

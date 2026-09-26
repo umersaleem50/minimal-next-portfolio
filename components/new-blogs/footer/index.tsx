@@ -1,36 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
-import { routesConfig } from "@/config/routes";
 import { SocialLinks } from "@/config/socials";
-import FooterLinks from "./footer-links";
 import FooterSocials from "./footer-social";
-import { FooterProps, FooterRoutes } from "./types";
+import { FooterProps } from "./types";
 
-const defaultRoutes: FooterRoutes[] = [
-  {
-    title: "Explore",
-    routes: routesConfig.mainNav.map((route: { title: string; href: string }) => ({
-      title: route.title,
-      url: route.href,
-    })),
-  },
-  {
-    title: "Services",
-    routes: [
-      { title: "Shopify stores", url: "/#services" },
-      { title: "Dashboards", url: "/#services" },
-      { title: "Landing pages", url: "/#services" },
-      { title: "SaaS products", url: "/#services" },
-    ],
-  },
-  {
-    title: "Connect",
-    routes: SocialLinks.map((social) => ({ title: social.name, url: social.link, external: true })),
-  },
-];
-
-function FooterModule({ metaData, footerRoutes = defaultRoutes, socialLinks }: FooterProps) {
+function FooterModule({ metaData, socialLinks }: FooterProps) {
   const year = new Date().getFullYear();
   const title = metaData?.title ?? "Keep your vision alive and online.";
   const subtitle = metaData?.subtitle ?? "Arfa Developers";
@@ -56,12 +31,6 @@ function FooterModule({ metaData, footerRoutes = defaultRoutes, socialLinks }: F
               <ArrowUpRight className="h-5 w-5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 border-b border-white/10 py-12 sm:grid-cols-3 lg:grid-cols-5 lg:py-16">
-          {footerRoutes.map(({ title, routes }) => (
-            <FooterLinks key={title} title={title} routes={routes} />
-          ))}
         </div>
 
         <div className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
