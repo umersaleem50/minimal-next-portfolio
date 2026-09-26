@@ -4,6 +4,7 @@ import Script from "next/script";
 import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
 import { ContributionGrid } from "@/components/contributions/contribution-grid";
 import { ExperienceTimeline } from "@/components/experience/experience-timeline";
+import { ContactSection } from "@/components/home/contact-section";
 import { EditorialHero } from "@/components/home/editorial-hero";
 import { HomeSection, ViewAllLink } from "@/components/home/home-section";
 import { Services } from "@/components/home/services";
@@ -120,6 +121,7 @@ export default function IndexPage() {
       >
         <SkillsCard skills={featuredSkills} />
       </HomeSection>
+      <ContactSection />
     </ClientPageWrapper>
   );
 }

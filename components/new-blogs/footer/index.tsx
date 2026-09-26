@@ -38,7 +38,7 @@ function FooterModule({ metaData, footerRoutes = defaultRoutes, socialLinks }: F
     socialLinks ?? SocialLinks.map((social) => ({ name: social.name, url: social.link, icon: social.icon }));
 
   return (
-    <footer className="w-full bg-slate-950 px-5 pt-24 text-white sm:px-8 lg:px-12 lg:pt-32">
+    <footer className="w-full border-t border-white/10 bg-slate-950 px-5 pt-24 text-white sm:px-8 lg:px-12 lg:pt-32">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-6 md:items-end lg:pb-16">
           <div className="space-y-4 md:col-span-4">
