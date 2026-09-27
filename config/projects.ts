@@ -30,11 +30,11 @@ export interface ProjectInterface {
 export const Projects: ProjectInterface[] = [
   {
     id: "portfolio-template",
-    companyName: "Portfolio Website (130+ GitHub stars)",
-    type: "Personal",
+    companyName: "Cayus AI",
+    type: "Professional",
     category: ["Web Dev", "Frontend", "UI/UX"],
     shortDescription:
-      "Open-source Next.js portfolio template recognized and forked by developers worldwide, optimized for SEO/AEO and performance.",
+      "AI console built for Managers, founders, and tech leaders to help improve their team and workflow.",
     websiteLink: "https://nbarkiya.xyz",
     githubLink: "https://github.com/namanbarkiya/minimal-next-portfolio",
     techStack: [
@@ -47,7 +47,7 @@ export const Projects: ProjectInterface[] = [
     ],
     startDate: new Date("2024-01-01"),
     endDate: new Date("2025-12-01"),
-    companyLogoImg: "/projects/portfolio/logo.png",
+    companyLogoImg: "/logos/cayus-logo.png",
     pagesInfoArr: [
       {
         title: "Landing & Sections",
@@ -150,11 +150,11 @@ export const Projects: ProjectInterface[] = [
   },
   {
     id: "portfolio-card",
-    companyName: "Portfolio Card",
+    companyName: "Cayus AI",
     type: "Personal",
     category: ["Web Dev", "Frontend", "3D Modeling"],
     shortDescription:
-      "Forged an immersive 3D Portfolio Card utilizing the prowess of Three.js and Blender, where art and technology converge in an interactive masterpiece.",
+      "AI console built for Managers, founders, and tech leaders to help improve their team and workflow.",
     websiteLink: "https://card.namanbarkiya.xyz/",
     githubLink: "https://github.com/namanbarkiya/3d-portfolio-card",
     techStack: ["React", "Javascript", "HTML 5", "CSS 3"],
@@ -599,7 +599,7 @@ const isScreenshot = (src: string) => !/(logo|profile-img)\.png$/.test(src);
 export const portfolioProjects = Projects.map((project) => ({
   project,
   images: Array.from(
-    new Set(project.pagesInfoArr.flatMap((page) => page.imgArr)),
+    new Set(project.pagesInfoArr.flatMap((page) => page.imgArr))
   ).filter(isScreenshot),
 }))
   .filter(({ images }) => images.length >= 2)

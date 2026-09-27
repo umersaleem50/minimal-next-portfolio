@@ -297,16 +297,16 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings:
-      "rlig"1,
-      "calt"1;
+      "rlig" 1,
+      "calt" 1;
   }
 
   .glass body {
     background-color: #eafbf5;
-    background-image:
+    /*background-image:
       radial-gradient(circle at 8% 18%, rgba(213, 91, 205, 0.38), transparent 30%),
       radial-gradient(circle at 88% 12%, rgba(82, 229, 159, 0.58), transparent 35%),
-      radial-gradient(circle at 52% 82%, rgba(126, 228, 225, 0.5), transparent 34%);
+      radial-gradient(circle at 52% 82%, rgba(126, 228, 225, 0.5), transparent 34%);*/
     background-attachment: fixed;
   }
 
@@ -329,17 +329,41 @@
 
 .hero-aurora {
   background:
-    radial-gradient(circle at 9% 81%, rgba(210, 78, 203, 0.88), transparent 31%),
-    radial-gradient(circle at 83% 13%, rgba(81, 226, 156, 0.94), transparent 35%),
-    radial-gradient(circle at 50% 58%, rgba(108, 225, 219, 0.88), transparent 38%),
+    radial-gradient(
+      circle at 9% 81%,
+      rgba(210, 78, 203, 0.88),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 83% 13%,
+      rgba(81, 226, 156, 0.94),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 58%,
+      rgba(108, 225, 219, 0.88),
+      transparent 38%
+    ),
     linear-gradient(135deg, #d9b4ef 0%, #d6f3de 48%, #84e9af 100%);
 }
 
 .hero-gradient-field {
   background:
-    radial-gradient(circle at 12% 92%, rgba(210, 78, 203, 0.92), transparent 38%),
-    radial-gradient(circle at 88% 10%, rgba(81, 226, 156, 0.96), transparent 43%),
-    radial-gradient(circle at 50% 50%, rgba(108, 225, 219, 0.9), transparent 52%),
+    radial-gradient(
+      circle at 12% 92%,
+      rgba(210, 78, 203, 0.92),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 88% 10%,
+      rgba(81, 226, 156, 0.96),
+      transparent 43%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(108, 225, 219, 0.9),
+      transparent 52%
+    ),
     linear-gradient(135deg, #d99de8 0%, #7de2d6 52%, #62e5a2 100%);
 }
 
@@ -402,23 +426,25 @@
   width: 105%;
   height: 200%;
   pointer-events: none;
-  background-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.009) 11.7%,
-      rgba(0, 0, 0, 0.034) 22.1%,
-      rgba(0, 0, 0, 0.072) 31.2%,
-      rgba(0, 0, 0, 0.123) 39.4%,
-      rgba(0, 0, 0, 0.182) 46.6%,
-      rgba(0, 0, 0, 0.249) 53.1%,
-      rgba(0, 0, 0, 0.32) 58.9%,
-      rgba(0, 0, 0, 0.394) 64.3%,
-      rgba(0, 0, 0, 0.468) 69.3%,
-      rgba(0, 0, 0, 0.54) 74.1%,
-      rgba(0, 0, 0, 0.607) 78.8%,
-      rgba(0, 0, 0, 0.668) 83.6%,
-      rgba(0, 0, 0, 0.721) 88.7%,
-      rgba(0, 0, 0, 0.762) 94.1%,
-      rgba(0, 0, 0, 0.79) 100%);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.009) 11.7%,
+    rgba(0, 0, 0, 0.034) 22.1%,
+    rgba(0, 0, 0, 0.072) 31.2%,
+    rgba(0, 0, 0, 0.123) 39.4%,
+    rgba(0, 0, 0, 0.182) 46.6%,
+    rgba(0, 0, 0, 0.249) 53.1%,
+    rgba(0, 0, 0, 0.32) 58.9%,
+    rgba(0, 0, 0, 0.394) 64.3%,
+    rgba(0, 0, 0, 0.468) 69.3%,
+    rgba(0, 0, 0, 0.54) 74.1%,
+    rgba(0, 0, 0, 0.607) 78.8%,
+    rgba(0, 0, 0, 0.668) 83.6%,
+    rgba(0, 0, 0, 0.721) 88.7%,
+    rgba(0, 0, 0, 0.762) 94.1%,
+    rgba(0, 0, 0, 0.79) 100%
+  );
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
 }
@@ -434,7 +460,7 @@
   z-index: 1;
 }
 
-.content>*+* {
+.content > * + * {
   margin-top: 1rem;
 }
 
@@ -482,7 +508,7 @@
     transform: translateY(calc(100% - 4.5rem));
   }
 
-  .content>*:not(.title) {
+  .content > *:not(.title) {
     opacity: 0;
     transform: translateY(1rem);
     transition:
@@ -510,8 +536,8 @@
     transform: translateY(0);
   }
 
-  .card:hover .content>*:not(.title),
-  .card:focus-within .content>*:not(.title) {
+  .card:hover .content > *:not(.title),
+  .card:focus-within .content > *:not(.title) {
     opacity: 1;
     transform: translateY(0);
     transition-delay: calc(var(--d) / 8);
@@ -520,7 +546,7 @@
   .card:focus-within:before,
   .card:focus-within:after,
   .card:focus-within .content,
-  .card:focus-within .content>*:not(.title) {
+  .card:focus-within .content > *:not(.title) {
     transition-duration: 0s;
   }
 }
@@ -560,7 +586,6 @@
 }
 
 @keyframes draw {
-
   0%,
   100% {
     stroke-opacity: 1;
@@ -595,14 +620,20 @@
   scroll-margin-top: 5rem;
 }
 
-.blog-content h1 { font-size: 2rem; }
+.blog-content h1 {
+  font-size: 2rem;
+}
 .blog-content h2 {
   font-size: 1.5rem;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid hsl(var(--border));
 }
-.blog-content h3 { font-size: 1.25rem; }
-.blog-content h4 { font-size: 1.1rem; }
+.blog-content h3 {
+  font-size: 1.25rem;
+}
+.blog-content h4 {
+  font-size: 1.1rem;
+}
 
 .blog-content p {
   margin-bottom: 1.25rem;
@@ -677,7 +708,8 @@
   padding: 0.15em 0.4em;
   border-radius: calc(var(--radius) - 4px);
   font-size: 0.875em;
-  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+  font-family:
+    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
 }
 
 /* Code blocks */
