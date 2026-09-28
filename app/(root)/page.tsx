@@ -81,11 +81,11 @@ export default function IndexPage() {
         id="experience"
         tone="dark"
         eyebrow={pagesConfig.experience.title}
-        title="Where the craft was shaped."
+        title="The journey that shaped me."
         description={pagesConfig.experience.description}
         actions={<ViewAllLink href="/experience" tone="dark" />}
       >
-        <ExperienceTimeline experiences={experiences.slice(0, 3)} />
+        <ExperienceTimeline experiences={experiences} />
       </HomeSection>
       <Portfolio
         projects={portfolioProjects}
