@@ -1,4 +1,5 @@
 export type ValidSkills =
+  | "Jetpack Compose"
   | "Next.js"
   | "React"
   | "GraphQL"
