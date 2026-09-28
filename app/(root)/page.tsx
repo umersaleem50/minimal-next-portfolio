@@ -99,7 +99,7 @@ export default function IndexPage() {
       <HomeSection
         id="contributions"
         eyebrow={pagesConfig.contributions.title}
-        title="Giving back to the tools I build with."
+        title="Giving back to the community that raised me"
         description={pagesConfig.contributions.description}
         actions={<ViewAllLink href="/contributions" />}
       >

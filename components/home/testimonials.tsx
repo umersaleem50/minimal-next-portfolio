@@ -114,7 +114,7 @@ export function Testimonials() {
               Client stories
             </p>
             <h2 className="max-w-3xl font-heading text-4xl leading-[1.05] sm:text-6xl">
-              Good work speaks through the people it helps.
+              Kind words from the people I've built alongside.
             </h2>
           </div>
           <div className="hidden shrink-0 gap-3 sm:flex">
