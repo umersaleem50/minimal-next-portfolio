@@ -17,7 +17,7 @@ export function PortfolioCard({
 }: PortfolioCardProps) {
   // Split screenshots between the two frames so they never show the same image.
   const primaryImages = images.filter((_, i) => i % 2 === 0);
-  const secondaryImages = images.filter((_, i) => i % 2 === 1);
+  const secondaryImages = images.at(0);
   const indexedTitle = `${index}. ${title}`;
 
   return (
@@ -28,13 +28,13 @@ export function PortfolioCard({
         sizes="(min-width: 1024px) 50vw, 42vw"
         className={cn(
           "lg:col-span-6 md:col-span-5 col-span-1 w-full lg:h-[34rem] md:h-[28rem] sm:block hidden border border-slate-200",
-          options.reverse && "md:order-last",
+          options.reverse && "md:order-last"
         )}
       />
       <div
         className={cn(
           "lg:col-span-4 md:col-span-5 col-span-1",
-          options.reverse && "md:order-2",
+          options.reverse && "md:order-2"
         )}
       >
         <PortfolioHeaders title={indexedTitle} subtitle={description} />
@@ -49,7 +49,7 @@ export function PortfolioCard({
       <div
         className={cn(
           "md:col-span-2 col-span-1 flex flex-row md:block gap-x-8 md:gap-x-0 justify-between py-8 md:py-0 items-end",
-          options.reverse && "md:order-first",
+          options.reverse && "md:order-first"
         )}
       >
         <div className="md:mb-10 md:-rotate-90 md:-translate-y-full whitespace-nowrap">
