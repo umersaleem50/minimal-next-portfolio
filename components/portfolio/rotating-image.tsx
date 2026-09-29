@@ -19,7 +19,7 @@ export function RotatingImage({
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (!images?.length) return;
+    if (images.length < 2) return;
     let timer: ReturnType<typeof setInterval>;
     const delay = setTimeout(() => {
       timer = setInterval(
