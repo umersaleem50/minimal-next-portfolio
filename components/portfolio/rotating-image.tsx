@@ -19,12 +19,12 @@ export function RotatingImage({
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (images.length < 2) return;
+    if (!images?.length) return;
     let timer: ReturnType<typeof setInterval>;
     const delay = setTimeout(() => {
       timer = setInterval(
         () => setIndex((current) => (current + 1) % images.length),
-        interval,
+        interval
       );
     }, startDelay);
     return () => {
@@ -36,7 +36,12 @@ export function RotatingImage({
   const src = images[index];
 
   return (
-    <div className={cn("relative overflow-hidden rounded-3xl bg-slate-100", className)}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-3xl bg-slate-100",
+        className
+      )}
+    >
       <AnimatePresence initial={false}>
         <motion.div
           key={src}
@@ -46,7 +51,13 @@ export function RotatingImage({
           exit={{ opacity: 0 }}
           transition={{ duration: reduceMotion ? 0 : 1.2, ease: "easeOut" }}
         >
-          <Image src={src} alt={alt} fill sizes={sizes} className="object-cover object-top" />
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes={sizes}
+            className="object-cover object-top"
+          />
         </motion.div>
       </AnimatePresence>
     </div>
