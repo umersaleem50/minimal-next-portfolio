@@ -17,7 +17,7 @@ export function PortfolioCard({
 }: PortfolioCardProps) {
   // Split screenshots between the two frames so they never show the same image.
   const primaryImages = images.filter((_, i) => i % 2 === 0);
-  const secondaryImages = images.at(0);
+  const secondaryImages = images.filter((_, i) => i % 2 === 1);
   const indexedTitle = `${index}. ${title}`;
 
   return (
