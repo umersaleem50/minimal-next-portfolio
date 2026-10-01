@@ -15,9 +15,10 @@ export function PortfolioCard({
   images,
   options = { reverse: index % 2 === 0 },
 }: PortfolioCardProps) {
-  // Split screenshots between the two frames so they never show the same image.
-  const primaryImages = images.filter((_, i) => i % 2 === 0);
-  const secondaryImages = images.filter((_, i) => i % 2 === 1);
+  // First image is the project logo shot, shown in the secondary (small) frame.
+  // The rest rotate through the primary (large) frame.
+  const [logoImage, ...primaryImages] = images;
+  const secondaryImages = [logoImage];
   const indexedTitle = `${index}. ${title}`;
 
   return (
@@ -26,6 +27,7 @@ export function PortfolioCard({
         images={primaryImages}
         alt={`${title} screenshot`}
         sizes="(min-width: 1024px) 50vw, 42vw"
+        variant="slide-down"
         className={cn(
           "lg:col-span-6 md:col-span-5 col-span-1 w-full lg:h-[34rem] md:h-[28rem] sm:block hidden border border-slate-200",
           options.reverse && "md:order-last"
