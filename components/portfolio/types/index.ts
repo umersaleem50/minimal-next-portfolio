@@ -32,4 +32,5 @@ export interface RotatingImageProps {
   interval?: number;
   startDelay?: number;
   className?: string;
+  variant?: "fade" | "slide-down";
 }
