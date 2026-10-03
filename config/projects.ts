@@ -46,7 +46,7 @@ export const Projects: ProjectInterface[] = [
         title: "Card Views",
         description: "Front and back views of the interactive 3D card",
         imgArr: [
-          "/projects/cayus/cayus-mockup.png",
+          "/projects/cayus/cayus.jpg",
           "/projects/cayus/cayus-mockup.png",
         ],
       },
@@ -83,9 +83,9 @@ export const Projects: ProjectInterface[] = [
     },
   },
   {
-    id: "the-super-focus",
-    companyName: "TheSuperFocus",
-    type: "Personal",
+    id: "sg-tools",
+    companyName: "Stridon Group",
+    type: "Professional",
     category: ["Full Stack", "Web Dev", "UI/UX"],
     shortDescription:
       "Pomodoro-inspired productivity web app with real-time sessions and recurring payments.",
@@ -102,12 +102,22 @@ export const Projects: ProjectInterface[] = [
     companyLogoImg: "/logo.png",
     pagesInfoArr: [
       {
+        title: "Card Views",
+        description: "Front and back views of the interactive 3D card",
+        imgArr: [
+          "/projects/stridon-group/thumbnail.jpg",
+          "/projects/stridon-group/mockup.jpg",
+          "/projects/stridon-group/mockup2.jpg",
+        ],
+      },
+      {
         title: "Realtime Focus Sessions",
         description:
           "Built real-time focus sessions using sockets to help people stay accountable and productive.",
         imgArr: ["/logo.png"],
       },
     ],
+
     descriptionDetails: {
       paragraphs: [
         "TheSuperFocus is a productivity web app inspired by the Pomodoro technique, built to help users stay focused and complete deep-work sessions.",
@@ -121,8 +131,8 @@ export const Projects: ProjectInterface[] = [
   },
 
   {
-    id: "the-super-quotes",
-    companyName: "The Super Quotes",
+    id: "copped-ai",
+    companyName: "Copped AI",
     type: "Professional",
     category: ["Mobile Dev", "Full Stack", "UI/UX"],
     shortDescription:
@@ -138,37 +148,34 @@ export const Projects: ProjectInterface[] = [
         title: "Quotes View Page",
         description:
           "Elegantly designed quotes display with customizable themes and sharing options",
-        imgArr: ["/projects/superquotes/app_2.webp"],
+        imgArr: [
+          "/projects/copped/thumbnail.jpg",
+          "/projects/copped/CoppedAi.png",
+        ],
       },
       {
         title: "Quotes Download Component",
         description:
           "Feature allowing users to download quotes as beautiful images for social media sharing",
-        imgArr: [
-          "/projects/superquotes/app_4.webp",
-          "/projects/superquotes/app_7.webp",
-        ],
+        imgArr: ["/projects/copped/mockup3.png"],
       },
       {
         title: "Account Management",
         description:
           "User profile management with favorites, history, and personalization settings",
-        imgArr: ["/projects/superquotes/app_6.webp"],
+        imgArr: ["/projects/copped/CoppedAi.png"],
       },
       {
         title: "Interest Selection and Update Page",
         description:
           "Interactive interface for users to select and update their quote preferences and interests",
-        imgArr: [
-          "/projects/superquotes/app_1.webp",
-          "/projects/superquotes/app_3.webp",
-        ],
+        imgArr: ["/projects/copped/CoppedAi.png"],
       },
       {
         title: "Responsiveness",
         description:
           "Adaptive design ensuring optimal user experience across various device sizes and orientations",
-        imgArr: ["/projects/superquotes/app_5.webp"],
+        imgArr: ["/projects/copped/CoppedAi.png"],
       },
     ],
     descriptionDetails: {
@@ -414,7 +421,7 @@ export const portfolioProjects = Projects.map((project) => ({
     new Set(project.pagesInfoArr.flatMap((page) => page.imgArr))
   ).filter(isScreenshot),
 }))
-  .filter(({ images }) => images.length >= 2)
+  .filter(({ images }) => images.length)
 
   .map(({ project, images }) => ({
     id: project.id,
