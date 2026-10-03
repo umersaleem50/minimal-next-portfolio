@@ -45,7 +45,7 @@ export function PortfolioCard({
           alt={`${title} screenshot`}
           sizes="(min-width: 768px) 35vw, 100vw"
           startDelay={2500}
-          className="w-full h-[20rem] border border-slate-200"
+          className="w-full h-[20rem] border border-slate-200 object-center"
         />
       </div>
       <div

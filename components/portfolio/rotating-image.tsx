@@ -4,8 +4,8 @@ import {
   AnimatePresence,
   motion,
   useReducedMotion,
-  type Transition,
   type TargetAndTransition,
+  type Transition,
 } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -85,7 +85,7 @@ export function RotatingImage({
             alt={alt}
             fill
             sizes={sizes}
-            className="object-cover object-top"
+            className="object-cover object-center"
           />
         </motion.div>
       </AnimatePresence>
