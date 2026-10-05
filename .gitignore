@@ -36,3 +36,6 @@ yarn-error.log*
 next-env.d.ts
 
 .idea
+
+# claude code local overrides
+.claude/settings.local.json
