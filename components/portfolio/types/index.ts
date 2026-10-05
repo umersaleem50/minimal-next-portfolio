@@ -2,7 +2,7 @@ export interface PortfolioItem {
   id: string;
   title: string;
   description: string;
-  results: string[];
+  results?: { title: string; subtitle: string };
   href: string;
   images: string[];
 }

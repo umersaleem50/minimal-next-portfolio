@@ -9,7 +9,7 @@ import { AnimatedSection } from "@/components/common/animated-section";
 import { Icons } from "@/components/common/icons";
 import ProjectStory from "@/components/projects/project-description";
 import { getTechIcon } from "@/components/projects/tech-icon";
-import { Projects, ProjectInterface } from "@/config/projects";
+import { ProjectInterface, Projects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import profileImg from "@/public/profile-img.png";
@@ -139,14 +139,13 @@ export default async function Project({ params }: ProjectPageProps) {
 
           <AnimatedSection
             delay={0.15}
-            className="mt-14 flex items-center justify-center overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 px-6 py-16 sm:py-24"
+            className="mt-14 flex items-center justify-center overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 px-6 py-16 sm:py-24 relative h-[600px]"
           >
             <Image
               src={project.companyLogoImg}
               alt={project.companyName}
-              width={320}
-              height={180}
-              className="h-28 w-auto object-contain sm:h-36"
+              fill
+              className="h-[400px] w-auto object-cover sm:h-[600px]"
               priority
             />
           </AnimatedSection>
@@ -188,10 +187,7 @@ export default async function Project({ params }: ProjectPageProps) {
                   key={tech}
                   className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
                 >
-                  <TechIcon
-                    className="h-4 w-4 grayscale"
-                    aria-hidden="true"
-                  />
+                  <TechIcon className="h-4 w-4 grayscale" aria-hidden="true" />
                   {tech}
                 </span>
               );
