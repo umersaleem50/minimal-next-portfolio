@@ -43,7 +43,7 @@ export const Projects: ProjectInterface[] = [
       "Cayus AI is a console built for Managers, founders, and tech leaders to help improve their team and workflow.",
     websiteLink: "https://cayus.ai/",
     githubLink: "https://github.com/renaudcayus/cayus-ai-website",
-    techStack: ["React", "Javascript", "HTML 5", "CSS 3", "Nest.js"],
+    techStack: ["React", "Javascript", "Next.js"],
     startDate: new Date("2022-09-01"),
     endDate: new Date("2022-12-01"),
     companyLogoImg: "/projects/cayus/cayus.jpg",
@@ -69,6 +69,11 @@ export const Projects: ProjectInterface[] = [
         description:
           "I implement multi-lang feature using i18 to help deliever the same message in differnt languages.",
         imgArr: ["/projects/cayus/multi-lang.png"],
+      },
+      {
+        title: "Helped Raised Funds",
+        description: "The website helped raise funds for their AI startup.",
+        imgArr: ["/projects/cayus/footer.png"],
       },
     ],
     descriptionDetails: {
