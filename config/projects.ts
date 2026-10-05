@@ -1,3 +1,5 @@
+import { PortfolioItem } from "@/components/portfolio/types";
+
 import { ValidCategory, ValidExpType, ValidSkills } from "./constants";
 
 interface PagesInfoInterface {
@@ -54,21 +56,19 @@ export const Projects: ProjectInterface[] = [
         title: "Card Views",
         description:
           "Cayus AI is a console built for Managers, founders, and tech leaders to help improve their team and workflow.",
-        imgArr: [
-          "/projects/cayus/cayus.jpg",
-          "/projects/cayus/cayus-mockup.png",
-        ],
+        imgArr: ["/projects/cayus/cayus-mockup.png"],
       },
       {
         title: "Hero Section of Cayus AI",
         description:
-          "I wrote code for their hero section, opened a PR, and it got merged.",
-        imgArr: ["/projects/cayus/cayus-mockup.png"],
+          "It helps deliever the the main message of the Cayus AI, what's it for.",
+        imgArr: ["/projects/cayus/hero.png"],
       },
       {
-        title: "3D Model Development",
-        description: "Blender project showcasing the model creation process",
-        imgArr: ["/projects/cayus/cayus-mockup.png"],
+        title: "Multi-Lang Support",
+        description:
+          "I implement multi-lang feature using i18 to help deliever the same message in differnt languages.",
+        imgArr: ["/projects/cayus/multi-lang.png"],
       },
     ],
     descriptionDetails: {
@@ -108,13 +108,12 @@ export const Projects: ProjectInterface[] = [
     ],
     startDate: new Date("2023-06-01"),
     endDate: new Date("2023-12-01"),
-    companyLogoImg: "/logo.png",
+    companyLogoImg: "/projects/stridon-group/thumbnail.jpg",
     pagesInfoArr: [
       {
         title: "Card Views",
         description: "Front and back views of the interactive 3D card",
         imgArr: [
-          "/projects/stridon-group/thumbnail.jpg",
           "/projects/stridon-group/mockup.jpg",
           "/projects/stridon-group/mockup2.jpg",
         ],
@@ -151,16 +150,13 @@ export const Projects: ProjectInterface[] = [
     techStack: ["React Native", "Node.js", "MongoDB", "Javascript"],
     startDate: new Date("2021-07-01"),
     endDate: new Date("2022-07-01"),
-    companyLogoImg: "/projects/superquotes/logo.png",
+    companyLogoImg: "/projects/copped/thumbnail.jpg",
     pagesInfoArr: [
       {
         title: "Quotes View Page",
         description:
           "Elegantly designed quotes display with customizable themes and sharing options",
-        imgArr: [
-          "/projects/copped/thumbnail.jpg",
-          "/projects/copped/CoppedAi.png",
-        ],
+        imgArr: ["/projects/copped/CoppedAi.png"],
       },
       {
         title: "Quotes Download Component",
@@ -213,13 +209,8 @@ export const Projects: ProjectInterface[] = [
     techStack: ["React Native", "Javascript", "Redux", "Node.js", "express.js"],
     startDate: new Date("2021-07-14"),
     endDate: new Date("2022-07-01"),
-    companyLogoImg: "/projects/apex/logo.png",
+    companyLogoImg: "/projects/entegrators/logo.jpg",
     pagesInfoArr: [
-      {
-        title: "Splash Screen",
-        description: "Custom animated splash screen with app branding",
-        imgArr: ["/projects/entegrators/logo.jpg"],
-      },
       {
         title: "Login/Signup Authentication",
         description: "Secure user authentication system with Firebase",
@@ -272,20 +263,17 @@ export const featuredProjects = Projects.slice(0, 3);
 
 const isScreenshot = (src: string) => !/(logo|profile-img)\.png$/.test(src);
 
-export const portfolioProjects = Projects.map((project) => ({
-  project,
-  thumbnail: Array.from(
+const getThumbnails = (project: ProjectInterface) =>
+  Array.from(
     new Set(project.pagesInfoArr.flatMap((page) => page.imgArr))
-  ).filter(isScreenshot),
-}))
-  .filter(({ thumbnail }) => thumbnail.length)
+  ).filter(isScreenshot);
 
-  .map(({ project, thumbnail }) => ({
-    id: project.id,
-    title: project.companyName,
-    description: project.shortDescription,
-    results: project.results,
-    href: `/projects/${project.id}`,
-    thumbnail,
-    logo: project.companyLogoImg,
-  }));
+export const portfolioProjects: PortfolioItem[] = Projects.map((project) => ({
+  id: project.id,
+  title: project.companyName,
+  description: project.shortDescription,
+  results: project.results,
+  href: `/projects/${project.id}`,
+  thumbnail: getThumbnails(project),
+  logo: project.companyLogoImg,
+})).filter((project) => project.thumbnail.length > 0);
