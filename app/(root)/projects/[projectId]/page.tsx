@@ -8,6 +8,7 @@ import { ReactNode } from "react";
 import { AnimatedSection } from "@/components/common/animated-section";
 import { Icons } from "@/components/common/icons";
 import ProjectStory from "@/components/projects/project-description";
+import { getTechIcon } from "@/components/projects/tech-icon";
 import { Projects, ProjectInterface } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -47,7 +48,7 @@ export default async function Project({ params }: ProjectPageProps) {
   const { projectId } = await params;
   const project = Projects.find((val) => val.id === projectId);
   if (!project) {
-    redirect("/projects");
+    redirect("/#projects");
   }
 
   const index = Projects.indexOf(project);
@@ -60,7 +61,7 @@ export default async function Project({ params }: ProjectPageProps) {
       <div className="border-b border-slate-200 px-5 py-6 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-[1400px]">
           <Link
-            href="/projects"
+            href="/#projects"
             className="group inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-950"
           >
             <ArrowLeft className="h-4 w-4 transition group-hover:-translate-x-0.5" />
@@ -180,14 +181,21 @@ export default async function Project({ params }: ProjectPageProps) {
             Built with
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
-              >
-                {tech}
-              </span>
-            ))}
+            {project.techStack.map((tech) => {
+              const TechIcon = getTechIcon(tech);
+              return (
+                <span
+                  key={tech}
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+                >
+                  <TechIcon
+                    className="h-4 w-4 grayscale"
+                    aria-hidden="true"
+                  />
+                  {tech}
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -265,7 +273,7 @@ export default async function Project({ params }: ProjectPageProps) {
 
           <div className="mt-10">
             <Link
-              href="/projects"
+              href="/#projects"
               className="group inline-flex h-12 items-center gap-2 rounded-full border border-white/20 px-6 text-sm font-semibold transition hover:bg-white hover:text-slate-950"
             >
               All projects

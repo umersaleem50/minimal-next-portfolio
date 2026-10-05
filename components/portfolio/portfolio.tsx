@@ -3,7 +3,7 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 
-import { HomeSection, ViewAllLink } from "@/components/home/home-section";
+import { HomeSection } from "@/components/home/home-section";
 import { cn } from "@/lib/utils";
 import { PortfolioCard } from "./portfolio-card";
 import { PortfolioProps } from "./types";
@@ -69,25 +69,22 @@ export function Portfolio({ projects, eyebrow, title, description }: PortfolioPr
         ))}
       </div>
 
-      <div className="mt-10 flex items-center justify-between gap-6 border-t border-slate-200 pt-8">
-        <div className="flex items-center gap-2">
-          {projects.map((project, index) => (
-            <button
-              key={project.id}
-              onClick={() => goTo(index)}
-              aria-label={`Go to ${project.title}`}
-              className={cn(
-                "h-2 rounded-full bg-slate-950 transition-all duration-500",
-                index === active ? "w-8" : "w-2 opacity-20 hover:opacity-40",
-              )}
-            />
-          ))}
-          <span className="ml-3 font-mono text-sm tabular-nums text-slate-400">
-            {String(active + 1).padStart(2, "0")} /{" "}
-            {String(projects.length).padStart(2, "0")}
-          </span>
-        </div>
-        <ViewAllLink href="/projects" label="All projects" />
+      <div className="mt-10 flex items-center gap-2 border-t border-slate-200 pt-8">
+        {projects.map((project, index) => (
+          <button
+            key={project.id}
+            onClick={() => goTo(index)}
+            aria-label={`Go to ${project.title}`}
+            className={cn(
+              "h-2 rounded-full bg-slate-950 transition-all duration-500",
+              index === active ? "w-8" : "w-2 opacity-20 hover:opacity-40",
+            )}
+          />
+        ))}
+        <span className="ml-3 font-mono text-sm tabular-nums text-slate-400">
+          {String(active + 1).padStart(2, "0")} /{" "}
+          {String(projects.length).padStart(2, "0")}
+        </span>
       </div>
     </HomeSection>
   );
