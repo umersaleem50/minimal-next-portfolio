@@ -12,13 +12,12 @@ export function PortfolioCard({
   description,
   results,
   href,
-  images,
+  thumbnail,
+  logo,
   options = { reverse: index % 2 === 0 },
 }: PortfolioCardProps) {
-  // First image is the project logo shot, shown in the secondary (small) frame.
-  // The rest rotate through the primary (large) frame.
-  const [logoImage, ...primaryImages] = images;
-  const secondaryImages = [logoImage];
+  const primaryImages = Array.isArray(thumbnail) ? thumbnail : [thumbnail];
+  const secondaryImages = [logo];
   const indexedTitle = `${index}. ${title}`;
 
   return (

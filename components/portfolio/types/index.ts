@@ -4,7 +4,10 @@ export interface PortfolioItem {
   description: string;
   results?: { title: string; subtitle: string };
   href: string;
-  images: string[];
+  /** Project screenshot(s) shown in the large, primary frame of the card. */
+  thumbnail: string | string[];
+  /** Project logo shown in the small, secondary frame of the card. */
+  logo: string;
 }
 
 export interface PortfolioCardProps extends PortfolioItem {

@@ -139,13 +139,13 @@ export default async function Project({ params }: ProjectPageProps) {
 
           <AnimatedSection
             delay={0.15}
-            className="mt-14 flex items-center justify-center overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 px-6 py-16 sm:py-24 relative h-[600px]"
+            className="relative mt-14 flex h-[280px] items-center justify-center overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 px-6 py-16 sm:h-[380px] sm:py-24 md:h-[480px] lg:h-[600px]"
           >
             <Image
               src={project.companyLogoImg}
               alt={project.companyName}
               fill
-              className="h-[400px] w-auto object-cover sm:h-[600px]"
+              className="object-cover"
               priority
             />
           </AnimatedSection>
@@ -265,16 +265,6 @@ export default async function Project({ params }: ProjectPageProps) {
               project={next}
               align="right"
             />
-          </div>
-
-          <div className="mt-10">
-            <Link
-              href="/#projects"
-              className="group inline-flex h-12 items-center gap-2 rounded-full border border-white/20 px-6 text-sm font-semibold transition hover:bg-white hover:text-slate-950"
-            >
-              All projects
-              <Icons.chevronRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-            </Link>
           </div>
         </div>
       </section>

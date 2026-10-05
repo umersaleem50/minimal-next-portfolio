@@ -274,17 +274,18 @@ const isScreenshot = (src: string) => !/(logo|profile-img)\.png$/.test(src);
 
 export const portfolioProjects = Projects.map((project) => ({
   project,
-  images: Array.from(
+  thumbnail: Array.from(
     new Set(project.pagesInfoArr.flatMap((page) => page.imgArr))
   ).filter(isScreenshot),
 }))
-  .filter(({ images }) => images.length)
+  .filter(({ thumbnail }) => thumbnail.length)
 
-  .map(({ project, images }) => ({
+  .map(({ project, thumbnail }) => ({
     id: project.id,
     title: project.companyName,
     description: project.shortDescription,
     results: project.results,
     href: `/projects/${project.id}`,
-    images,
+    thumbnail,
+    logo: project.companyLogoImg,
   }));
