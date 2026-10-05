@@ -56,9 +56,9 @@ export function PortfolioCard({
       >
         <div className="md:mb-10 md:-rotate-90 md:-translate-y-full whitespace-nowrap">
           <p className="md:text-3xl sm:text-2xl text-xl font-serif text-slate-500">
-            {results.at(0)}
+            {results?.title}
           </p>
-          <p className="text-sm text-slate-500">{results.at(1)}</p>
+          <p className="text-sm text-slate-500">{results?.subtitle}</p>
         </div>
         <Link
           href={href}

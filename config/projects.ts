@@ -25,6 +25,10 @@ export interface ProjectInterface {
   companyLogoImg: any;
   descriptionDetails: DescriptionDetailsInterface;
   pagesInfoArr: PagesInfoInterface[];
+  results?: {
+    title: string;
+    subtitle: string;
+  };
 }
 
 export const Projects: ProjectInterface[] = [
@@ -32,28 +36,33 @@ export const Projects: ProjectInterface[] = [
     id: "portfolio-card",
     companyName: "Cayus AI",
     type: "Professional",
-    category: ["Web Dev", "Frontend", "3D Modeling"],
+    category: ["Web Dev", "Frontend"],
     shortDescription:
-      "AI console built for Managers, founders, and tech leaders to help improve their team and workflow.",
-    websiteLink: "https://card.namanbarkiya.xyz/",
-    githubLink: "https://github.com/namanbarkiya/3d-portfolio-card",
-    techStack: ["React", "Javascript", "HTML 5", "CSS 3"],
-    startDate: new Date("2022-03-01"),
-    endDate: new Date("2022-07-01"),
-    companyLogoImg: "/projects/card/logo.png",
+      "Cayus AI is a console built for Managers, founders, and tech leaders to help improve their team and workflow.",
+    websiteLink: "https://cayus.ai/",
+    githubLink: "https://github.com/renaudcayus/cayus-ai-website",
+    techStack: ["React", "Javascript", "HTML 5", "CSS 3", "Nest.js"],
+    startDate: new Date("2022-09-01"),
+    endDate: new Date("2022-12-01"),
+    companyLogoImg: "/projects/cayus/cayus.jpg",
+    results: {
+      title: "Helped raised",
+      subtitle: "funds for their startup",
+    },
     pagesInfoArr: [
       {
         title: "Card Views",
-        description: "Front and back views of the interactive 3D card",
+        description:
+          "Cayus AI is a console built for Managers, founders, and tech leaders to help improve their team and workflow.",
         imgArr: [
           "/projects/cayus/cayus.jpg",
           "/projects/cayus/cayus-mockup.png",
         ],
       },
       {
-        title: "Interactive Elements",
+        title: "Hero Section of Cayus AI",
         description:
-          "Custom links embedded in the 3D model with interactive animations",
+          "I wrote code for their hero section, opened a PR, and it got merged.",
         imgArr: ["/projects/cayus/cayus-mockup.png"],
       },
       {
@@ -275,10 +284,7 @@ export const portfolioProjects = Projects.map((project) => ({
     id: project.id,
     title: project.companyName,
     description: project.shortDescription,
-    results: [
-      project.endDate.getFullYear().toString(),
-      project.category.slice(0, 2).join(" · "),
-    ],
+    results: project.results,
     href: `/projects/${project.id}`,
     images,
   }));
