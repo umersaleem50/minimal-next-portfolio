@@ -80,9 +80,9 @@ export const Projects: ProjectInterface[] = [
     descriptionDetails: {
       paragraphs: [
         "Cayus AI is a console built for managers, founders, and tech leaders who want a clearer read on how their teams are actually doing. I joined the team to help build their public website, working under a senior engineer, Filip Trivan, who set the direction while I handled a good share of the implementation.",
-        "Most of my time went into the frontend — turning design discussions into working sections, including the homepage and hero area, and making sure the site felt considered rather than templated. I also contributed a few design suggestions along the way, mostly small layout and copy tweaks that made the page easier to scan.",
-        "One piece I owned outright was multi-language support. I set it up using i18n in Next.js so the whole site could be served in multiple languages without duplicating pages or routes.",
-        "I also handled the SEO groundwork that's easy to skip under deadline pressure: a proper robots.txt, an auto-generated sitemap, metadata for every page, and Open Graph images for clean link previews on social and in search. The site was live and doing its job while the team was out raising funding for the startup.",
+        "Most of my work was on the frontend — building out sections like the homepage and hero, and chipping in a few design tweaks to keep the page clean and easy to scan.",
+        "I also added multi-language support, using i18n in Next.js so the site could serve the same content in different languages without duplicating pages.",
+        "On top of that, I set up the SEO basics: robots.txt, a sitemap, metadata for each page, and Open Graph images for better link previews. Small things, but they matter once a site actually goes live.",
       ],
       bullets: [
         "Built core sections of the Cayus AI website, including the homepage and hero, under senior engineer Filip Trivan.",
