@@ -96,11 +96,12 @@ export const Projects: ProjectInterface[] = [
   },
   {
     id: "sg-tools",
-    companyName: "Stridon Group",
+    companyName: "SGTools",
     type: "Professional",
     category: ["Full Stack", "Web Dev", "UI/UX"],
     shortDescription:
-      "Developed the Stridon Group website under a senior engineer — built to turn visitors into new customers.",
+      "Improved landing page conversion for SGTools, an e-commerce store based in Serbia, through design, copy, and new features.",
+    websiteLink: "https://www.sgtools.rs/",
     techStack: [
       "Next.js",
       "React",
@@ -113,14 +114,14 @@ export const Projects: ProjectInterface[] = [
     endDate: new Date("2023-12-01"),
     companyLogoImg: "/projects/stridon-group/thumbnail.jpg",
     results: {
-      title: "Helped convert",
-      subtitle: "new customers",
+      title: "Improved conversion",
+      subtitle: "on their landing page",
     },
     pagesInfoArr: [
       {
         title: "Homepage",
         description:
-          "The homepage I built for Stridon Group, structured to explain their offering quickly and move visitors toward getting in touch.",
+          "The landing page I worked on for SGTools, redesigning sections and rewriting copy to turn more visitors into buyers.",
         imgArr: [
           "/projects/stridon-group/mockup.jpg",
           "/projects/stridon-group/mockup2.jpg",
@@ -129,21 +130,24 @@ export const Projects: ProjectInterface[] = [
       {
         title: "Built to Convert",
         description:
-          "Working under senior engineer Filip Trivan, I shipped the pages and components that helped turn visitors into new customers.",
+          "I retraced SGTools' logos and built out new sections and features, picking up GitHub issues along the way to ship a page that converted better.",
         imgArr: ["/logo.png"],
       },
     ],
 
     descriptionDetails: {
       paragraphs: [
-        "Stridon Group brought me on to build their website, working under senior engineer Filip Trivan — the same setup I'd had on the Cayus AI project. He set the direction and reviewed the work; I built the pages.",
-        "The brief was straightforward: a site that looked credible and made it easy for visitors to become customers. I focused on clear page structure, fast load times, and calls-to-action that didn't get lost in the design.",
-        "It worked — the site went on to help convert new customers for the business, which was the real goal all along, not just a good-looking page.",
+        "SGTools is an e-commerce store based in Serbia. I joined to help improve their landing page, since conversion was the main thing that needed fixing.",
+        "I redesigned a few sections and retraced their logos for a cleaner look, and rewrote some of the page copy that wasn't pulling its weight.",
+        "On the development side, I built out new features and picked up open GitHub issues, fixing bugs as I found them.",
+        "I also set up metadata and Open Graph images across the site, so links looked right wherever they were shared.",
       ],
       bullets: [
-        "Built the Stridon Group website end-to-end under senior engineer Filip Trivan.",
-        "Focused on clear structure and strong calls-to-action to drive conversions.",
-        "Shipped a site that went on to help convert new customers for the business.",
+        "Redesigned landing page sections and retraced SGTools' logos.",
+        "Rewrote page copy to improve clarity and conversion.",
+        "Developed new features and resolved open GitHub issues.",
+        "Set up metadata and Open Graph images across the site.",
+        "Helped improve the landing page's conversion rate.",
       ],
     },
   },
