@@ -40,7 +40,7 @@ export const Projects: ProjectInterface[] = [
     type: "Professional",
     category: ["Web Dev", "Frontend"],
     shortDescription:
-      "Cayus AI is a console built for Managers, founders, and tech leaders to help improve their team and workflow.",
+      "Built the Cayus AI website under a senior engineer — from UI and multi-language support to the SEO foundations that helped it get found.",
     websiteLink: "https://cayus.ai/",
     githubLink: "https://github.com/renaudcayus/cayus-ai-website",
     techStack: ["React", "Javascript", "Next.js"],
@@ -53,46 +53,44 @@ export const Projects: ProjectInterface[] = [
     },
     pagesInfoArr: [
       {
-        title: "Card Views",
+        title: "Homepage",
         description:
-          "Cayus AI is a console built for Managers, founders, and tech leaders to help improve their team and workflow.",
+          "Cayus AI is a console built for managers, founders, and tech leaders who want a clearer read on their team's workflow — this is the homepage I helped build to introduce it.",
         imgArr: ["/projects/cayus/cayus-mockup.png"],
       },
       {
-        title: "Hero Section of Cayus AI",
+        title: "Hero Section",
         description:
-          "It helps deliever the the main message of the Cayus AI, what's it for.",
+          "I built this section from our design discussions, tuning layout and motion so the product's pitch lands in the first few seconds.",
         imgArr: ["/projects/cayus/hero.png"],
       },
       {
-        title: "Multi-Lang Support",
+        title: "Multi-Language Support",
         description:
-          "I implement multi-lang feature using i18 to help deliever the same message in differnt languages.",
+          "I implemented multi-language support with i18n in Next.js, so the same message reads naturally across languages without duplicating pages.",
         imgArr: ["/projects/cayus/multi-lang.png"],
       },
       {
-        title: "Helped Raised Funds",
-        description: "The website helped raise funds for their AI startup.",
+        title: "SEO & Launch",
+        description:
+          "I set up robots.txt, a sitemap, per-page metadata, and Open Graph images — the quiet SEO work behind a site that went on to help the team raise funding.",
         imgArr: ["/projects/cayus/footer.png"],
       },
     ],
     descriptionDetails: {
       paragraphs: [
-        "In my personal, I've ventured into the world of creativity, fashioning a distinctive portfolio card through the utilization of Three.js.",
-        "This portfolio card transcends convention; it emerges as a captivating 3D model, adorned with meticulous lighting arrangements that conjure a spellbinding visual journey.",
-        "To materialize this concept, I've harnessed the combined potential of Three.js and Blender, orchestrating a meticulous crafting of the central 3D model that serves as the cornerstone of the card's allure.",
-        "Yet, the allure extends beyond aesthetics. I've ingeniously interwoven custom links directly into the fabric of Three.js components. Through the creation and seamless integration of novel components, these additions elegantly rest upon the card's surface, mirroring its rotations and delivering an interactive dimension to my portfolio.",
-        "The portfolio card itself is an opus of motion, perpetually swaying in an auto-rotational dance that unfurls its multifaceted essence. As an enhancement, I've introduced an instinctive user interaction element. A simple, intuitive drag of the card in specific directions grants viewers a comprehensive vantage, enabling exploration from every conceivable angle.",
-        "At its core, my personal epitomizes technical finesse, artistic expression, and interactive design. The amalgamation of Three.js, Blender's prowess, and the innovation of component integration has birthed not only a portfolio card, but a dynamic encounter leaving an indelible imprint on all who partake.",
+        "Cayus AI is a console built for managers, founders, and tech leaders who want a clearer read on how their teams are actually doing. I joined the team to help build their public website, working under a senior engineer, Filip Trivan, who set the direction while I handled a good share of the implementation.",
+        "Most of my time went into the frontend — turning design discussions into working sections, including the homepage and hero area, and making sure the site felt considered rather than templated. I also contributed a few design suggestions along the way, mostly small layout and copy tweaks that made the page easier to scan.",
+        "One piece I owned outright was multi-language support. I set it up using i18n in Next.js so the whole site could be served in multiple languages without duplicating pages or routes.",
+        "I also handled the SEO groundwork that's easy to skip under deadline pressure: a proper robots.txt, an auto-generated sitemap, metadata for every page, and Open Graph images for clean link previews on social and in search. The site was live and doing its job while the team was out raising funding for the startup.",
       ],
       bullets: [
-        "Conceptualized and realized a distinct portfolio card using Three.js, highlighting creative exploration.",
-        "Crafted a mesmerizing 3D model enhanced by thoughtful lighting arrangements, resulting in a captivating visual voyage.",
-        "Leveraged the synergy of Three.js and Blender to meticulously sculpt and refine the central 3D model, embodying meticulous attention to detail.",
-        "Innovatively integrated custom links within Three.js components, introducing an interactive layer via seamlessly incorporated new elements.",
-        "Enabled an auto-rotating feature for the portfolio card, perpetually showcasing its various facets to observers.",
-        "Introduced an instinctual user interaction mechanism, allowing viewers to comprehensively explore the card's dimensions through simple, intuitive dragging motions.",
-        "Represented a fusion of technical prowess, artistic ingenuity, and interactive design in a project that reshapes the boundaries of conventional portfolio representation.",
+        "Built core sections of the Cayus AI website, including the homepage and hero, under senior engineer Filip Trivan.",
+        "Implemented multi-language support using i18n across the entire Next.js site.",
+        "Contributed design suggestions that shaped layout and content decisions.",
+        "Set up robots.txt, sitemap, and per-page metadata for SEO.",
+        "Generated Open Graph images for consistent social and search link previews.",
+        "Shipped a site that supported the startup's fundraising efforts.",
       ],
     },
   },
@@ -102,7 +100,7 @@ export const Projects: ProjectInterface[] = [
     type: "Professional",
     category: ["Full Stack", "Web Dev", "UI/UX"],
     shortDescription:
-      "Pomodoro-inspired productivity web app with real-time sessions and recurring payments.",
+      "Developed the Stridon Group website under a senior engineer — built to turn visitors into new customers.",
     techStack: [
       "Next.js",
       "React",
@@ -114,31 +112,38 @@ export const Projects: ProjectInterface[] = [
     startDate: new Date("2023-06-01"),
     endDate: new Date("2023-12-01"),
     companyLogoImg: "/projects/stridon-group/thumbnail.jpg",
+    results: {
+      title: "Helped convert",
+      subtitle: "new customers",
+    },
     pagesInfoArr: [
       {
-        title: "Card Views",
-        description: "Front and back views of the interactive 3D card",
+        title: "Homepage",
+        description:
+          "The homepage I built for Stridon Group, structured to explain their offering quickly and move visitors toward getting in touch.",
         imgArr: [
           "/projects/stridon-group/mockup.jpg",
           "/projects/stridon-group/mockup2.jpg",
         ],
       },
       {
-        title: "Realtime Focus Sessions",
+        title: "Built to Convert",
         description:
-          "Built real-time focus sessions using sockets to help people stay accountable and productive.",
+          "Working under senior engineer Filip Trivan, I shipped the pages and components that helped turn visitors into new customers.",
         imgArr: ["/logo.png"],
       },
     ],
 
     descriptionDetails: {
       paragraphs: [
-        "TheSuperFocus is a productivity web app inspired by the Pomodoro technique, built to help users stay focused and complete deep-work sessions.",
-        "It includes real-time session support and a paid tier with recurring billing.",
+        "Stridon Group brought me on to build their website, working under senior engineer Filip Trivan — the same setup I'd had on the Cayus AI project. He set the direction and reviewed the work; I built the pages.",
+        "The brief was straightforward: a site that looked credible and made it easy for visitors to become customers. I focused on clear page structure, fast load times, and calls-to-action that didn't get lost in the design.",
+        "It worked — the site went on to help convert new customers for the business, which was the real goal all along, not just a good-looking page.",
       ],
       bullets: [
-        "Built a Pomodoro-inspired productivity web app using real-time sockets.",
-        "Integrated Razorpay for recurring payments, securing 10+ premium users.",
+        "Built the Stridon Group website end-to-end under senior engineer Filip Trivan.",
+        "Focused on clear structure and strong calls-to-action to drive conversions.",
+        "Shipped a site that went on to help convert new customers for the business.",
       ],
     },
   },
