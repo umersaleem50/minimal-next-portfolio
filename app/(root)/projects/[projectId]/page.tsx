@@ -142,7 +142,10 @@ export default async function Project({ params }: ProjectPageProps) {
             className="relative mt-14 flex h-[280px] items-center justify-center overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 px-6 py-16 sm:h-[380px] sm:py-24 md:h-[480px] lg:h-[600px]"
           >
             <Image
-              src={project.companyLogoImg}
+              src={
+                project.pagesInfoArr.at(0)?.imgArr.at(0) ||
+                project.companyLogoImg
+              }
               alt={project.companyName}
               fill
               className="object-cover"
