@@ -165,59 +165,58 @@ export const Projects: ProjectInterface[] = [
     id: "copped-ai",
     companyName: "Copped AI",
     type: "Professional",
-    category: ["Mobile Dev", "Full Stack", "UI/UX"],
+    category: ["Backend", "Full Stack"],
     shortDescription:
-      "Elevated The Super Quotes app with JavaScript, React Native, APIs, Redux magic, and Google Play Store debut.",
-    websiteLink:
-      "https://play.google.com/store/apps/details?id=com.thesuperlife",
-    techStack: ["React Native", "Node.js", "MongoDB", "Javascript"],
+      "Built the backend for Copped AI's iOS app — Supabase database and storage, and edge functions that integrate SERP API to find matching products.",
+    techStack: ["Supabase", "Typescript", "PostgreSQL", "Node.js"],
     startDate: new Date("2021-07-01"),
     endDate: new Date("2022-07-01"),
     companyLogoImg: "/projects/copped/thumbnail.jpg",
     pagesInfoArr: [
       {
-        title: "Quotes View Page",
+        title: "Database & Storage Setup",
         description:
-          "Elegantly designed quotes display with customizable themes and sharing options",
+          "I configured Supabase as the backend for the client's iOS app, setting up the database schema and storage buckets to save user data and uploaded images.",
         imgArr: ["/projects/copped/CoppedAi.png"],
       },
       {
-        title: "Quotes Download Component",
+        title: "Product Search via SERP API",
         description:
-          "Feature allowing users to download quotes as beautiful images for social media sharing",
+          "I wrote edge functions that call the SERP API to search for products matching an image or query, giving the app a way to surface similar items to users.",
         imgArr: ["/projects/copped/mockup3.png"],
       },
       {
-        title: "Account Management",
+        title: "Storage Buckets",
         description:
-          "User profile management with favorites, history, and personalization settings",
+          "I set up and secured storage buckets for user-uploaded files, with access rules scoped so each user could only read and write their own data.",
         imgArr: ["/projects/copped/CoppedAi.png"],
       },
       {
-        title: "Interest Selection and Update Page",
+        title: "Edge Functions",
         description:
-          "Interactive interface for users to select and update their quote preferences and interests",
+          "I built and deployed the Supabase edge functions that handled the SERP API integration and other backend logic the app relied on.",
         imgArr: ["/projects/copped/CoppedAi.png"],
       },
       {
-        title: "Responsiveness",
+        title: "iOS Integration",
         description:
-          "Adaptive design ensuring optimal user experience across various device sizes and orientations",
+          "I worked closely with the iOS developer to wire up the app against the Supabase backend, making sure data, storage, and the search feature worked end-to-end.",
         imgArr: ["/projects/copped/CoppedAi.png"],
       },
     ],
     descriptionDetails: {
       paragraphs: [
-        `Venturing into the world of creativity at The Super Quotes was an exhilarating journey. As a passionate developer, I led the charge in crafting a compelling application from inception to completion, using the dynamic duo of JavaScript and React Native.`,
-        `The heart of my achievement lay in the seamless integration of APIs, threading a tapestry of data flow that propelled the application's functionality to new heights.`,
-        `With the wizardry of Redux, I choreographed a symphony of state management and performance optimization, orchestrating a ballet of responsiveness that wowed users with every interaction.`,
-        `A crescendo awaited as I unveiled the culmination of my work on the grand stage of the Google Play Store. The app's debut marked an epoch, opening doors to an expansive audience eager to embrace the charm of The Super Quotes.`,
+        "Copped AI's client needed a backend for his iOS app so it could save user data and uploaded images instead of keeping everything on-device. I came on as the backend developer to build that out.",
+        "I configured Supabase as the backend, setting up the database to store user data and storage buckets to hold uploaded files, with access rules scoped per user.",
+        "The app also needed to help users find similar products from an image or query, so I wrote edge functions that integrated the SERP API to search for matching products and return results the app could display.",
+        "Once the backend was in place, I worked directly with the iOS developer to integrate it into the app, making sure the database, storage, and search feature all worked together smoothly.",
       ],
       bullets: [
-        "Led the end-to-end development of a captivating application using JavaScript and React Native.",
-        "Championed the integration of APIs, harmonizing data flow and enhancing application functionality.",
-        "Conducted Redux magic to ensure state management and optimize performance, delivering a mesmerizing user experience.",
-        "Premiered the application on the Google Play Store, capturing hearts and expanding its user base.",
+        "Configured Supabase as the backend for the client's iOS app.",
+        "Designed the database schema to store user data.",
+        "Set up and secured storage buckets for user-uploaded files.",
+        "Wrote Supabase edge functions integrating the SERP API to search for similar products.",
+        "Worked with the iOS developer to integrate the backend into the app.",
       ],
     },
   },
