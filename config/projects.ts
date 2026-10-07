@@ -122,25 +122,25 @@ export const Projects: ProjectInterface[] = [
         title: "Homepage",
         description:
           "The landing page I worked on for SGTools, redesigning sections and rewriting copy to turn more visitors into buyers.",
-        imgArr: [],
+        imgArr: ["/projects/stridon-group/mockup.jpg"],
       },
       {
         title: "Logo & Visual Design",
         description:
           "I retraced SGTools' logos and designed a few new sections for a cleaner, sharper look across the site.",
-        imgArr: [],
+        imgArr: ["/projects/stridon-group/mockup2.jpg"],
       },
       {
         title: "Feature Development",
         description:
           "I built out new features and picked up open GitHub issues, fixing bugs the team had flagged.",
-        imgArr: [],
+        imgArr: ["/projects/stridon-group/sg-tools.png"],
       },
       {
         title: "SEO & Launch",
         description:
           "I set up metadata and Open Graph images across the site, so links looked right wherever they were shared.",
-        imgArr: [],
+        imgArr: ["/projects/stridon-group/mockup2.jpg"],
       },
     ],
 
@@ -299,4 +299,4 @@ export const portfolioProjects: PortfolioItem[] = Projects.map((project) => ({
   href: `/projects/${project.id}`,
   thumbnail: getThumbnails(project),
   logo: project.companyLogoImg,
-})).filter((project) => project.thumbnail.length > 0);
+}));
