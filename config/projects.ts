@@ -223,59 +223,59 @@ export const Projects: ProjectInterface[] = [
   {
     id: "apex-shopping",
     companyName: "Entegrators",
-    type: "Personal",
-    category: ["Mobile Dev", "Full Stack", "UI/UX"],
+    type: "Professional",
+    category: ["Android Dev", "Mobile Dev", "Backend"],
     shortDescription:
-      "Developed a feature-rich mobile shopping application with admin panel, user authentication, and seamless product management using React Native and Firebase.",
-    githubLink: "https://github.com/namanbarkiya/apex-shopping-app",
-    techStack: ["React Native", "Javascript", "Redux", "Node.js", "express.js"],
+      "Built and tested multiple Android apps at Entegrators, then moved them all into a Gradle multi-module monorepo with a GitHub Actions pipeline that built only the affected apps and reported builds to Discord.",
+    techStack: ["Kotlin", "Git", "CI/CD"],
     startDate: new Date("2021-07-14"),
     endDate: new Date("2022-07-01"),
     companyLogoImg: "/projects/entegrators/logo.jpg",
     pagesInfoArr: [
       {
-        title: "Login/Signup Authentication",
-        description: "Secure user authentication system with Firebase",
+        title: "Android App Development",
+        description:
+          "I developed and tested several of Entegrators' Android apps in Kotlin, working across multiple codebases for the team.",
         imgArr: ["/projects/entegrators/mockup.png"],
       },
       {
-        title: "All Products Explore Screen",
-        description: "Interactive product browsing with categories and filters",
+        title: "Multi-Repo to Monorepo Migration",
+        description:
+          "I migrated all of Entegrators' Android apps out of separate repos into a single monorepo, restructuring and configuring each app along the way.",
         imgArr: ["/projects/entegrators/mockup2.png"],
       },
       {
-        title: "Admin Panel",
+        title: "Gradle Multi-Module Setup",
         description:
-          "Comprehensive admin dashboard for product and order management",
+          "I set up the monorepo as a Gradle multi-module project, pushed it to GitHub, and got every app building cleanly from the shared structure.",
         imgArr: [],
       },
       {
-        title: "Sidenav Navigation",
-        description: "Intuitive side navigation for easy app navigation",
+        title: "GitHub Actions CI Pipeline",
+        description:
+          "I built a CI pipeline in GitHub Actions that detected which apps were affected by a change and only built those, instead of rebuilding the whole monorepo every time.",
         imgArr: [],
       },
       {
-        title: "Firebase Database",
+        title: "Discord Build Notifications",
         description:
-          "Real-time database structure for efficient data management",
+          "With help from my senior, I integrated the pipeline with Discord bots so the team got notified about new app builds as soon as they went out.",
         imgArr: [],
       },
     ],
     descriptionDetails: {
       paragraphs: [
-        "The Apex Shopping App represents a comprehensive mobile e-commerce solution that I developed from the ground up using React Native and Firebase. This project showcases my ability to create a full-featured shopping application with both user and admin functionalities.",
-        "The application features a robust authentication system, allowing users to securely sign up and log in. The product exploration interface is designed with user experience in mind, incorporating smooth navigation and intuitive filtering options.",
-        "One of the key highlights is the admin panel, which provides complete control over product management, order processing, and inventory tracking. The integration with Firebase ensures real-time data synchronization and reliable data persistence.",
-        "The app's architecture emphasizes scalability and performance, utilizing Redux for state management and following best practices for mobile app development. The UI/UX design focuses on providing a seamless shopping experience across different device sizes.",
+        "At Entegrators, I worked on multiple Android apps using Kotlin — building features and writing tests across several of the team's codebases.",
+        "As the number of apps grew, each living in its own repo, I took on migrating all of them into a single monorepo. I restructured and configured every app and set the whole thing up as a Gradle multi-module project, then pushed it to GitHub.",
+        "With everything in one place, rebuilding every app on every change didn't make sense, so I built a CI pipeline in GitHub Actions that detected which apps were actually affected by a given change and built only those.",
+        "My senior then helped me take it a step further by integrating the pipeline with Discord bots, so the team automatically got notified whenever a new app build went out.",
       ],
       bullets: [
-        "Implemented secure user authentication and authorization using Firebase",
-        "Designed and developed an intuitive product browsing and shopping cart system",
-        "Created a comprehensive admin panel for product and order management",
-        "Integrated real-time data synchronization using Firebase Database",
-        "Implemented state management using Redux for optimal performance",
-        "Designed responsive UI components following mobile-first principles",
-        "Incorporated smooth animations and transitions for enhanced user experience",
+        "Developed and tested multiple Android apps in Kotlin.",
+        "Migrated all of Entegrators' Android apps from separate repos into a single monorepo.",
+        "Set up and configured the monorepo as a Gradle multi-module project.",
+        "Built a GitHub Actions pipeline that built only the apps affected by a given change.",
+        "Integrated the build pipeline with Discord bots to notify the team of new app builds.",
       ],
     },
   },
