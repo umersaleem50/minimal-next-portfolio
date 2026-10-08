@@ -58,18 +58,6 @@ export default async function Project({ params }: ProjectPageProps) {
 
   return (
     <article className="bg-white text-slate-900">
-      <div className="border-b border-slate-200 px-5 py-6 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-[1400px]">
-          <Link
-            href="/#projects"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-950"
-          >
-            <ArrowLeft className="h-4 w-4 transition group-hover:-translate-x-0.5" />
-            All projects
-          </Link>
-        </div>
-      </div>
-
       {/* Hero */}
       <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
         <div className="mx-auto max-w-[1400px]">
