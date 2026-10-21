@@ -60,11 +60,13 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   variant = "default",
 }) => {
   const styles = variants[variant];
-  return (
+  const isCurrent = experience.endDate === "Present";
+  const card = (
     <div
       className={cn(
         "group relative overflow-hidden p-4 sm:p-6 transition-all duration-300",
-        styles.card
+        styles.card,
+        isCurrent && "border-transparent bg-slate-900 hover:bg-slate-900"
       )}
     >
       <div className="flex items-start gap-3 sm:gap-4">
@@ -158,6 +160,14 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           </div>
         </div>
       </div>
+    </div>
+  );
+
+  // Gradient border (same palette as the hero) marks the role held right now.
+  if (!isCurrent) return card;
+  return (
+    <div className="hero-gradient-button rounded-3xl p-[1.5px] shadow-[0_0_40px_-12px_rgba(236,75,199,0.55)]">
+      {card}
     </div>
   );
 };
