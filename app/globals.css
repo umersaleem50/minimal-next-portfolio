@@ -371,6 +371,18 @@
   background: linear-gradient(100deg, #ffbe72 0%, #ec4bc7 46%, #51e5a1 100%);
 }
 
+/* Wavy gradient underline for highlighted phrases. text-decoration can't take a gradient,
+   so the wave is a tiled SVG background that follows the text across line breaks. */
+.wavy-underline {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%23ffbe72'/><stop offset='.5' stop-color='%23ec4bc7'/><stop offset='1' stop-color='%2351e5a1'/></linearGradient></defs><path d='M0 4 Q3.75 0.5 7.5 4 T15 4 T22.5 4 T30 4 T37.5 4 T45 4 T52.5 4 T60 4 T67.5 4 T75 4 T82.5 4 T90 4 T97.5 4 T105 4 T112.5 4 T120 4' fill='none' stroke='url(%23g)' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 120px 8px;
+  padding-bottom: 6px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 .testimonial-track {
   scrollbar-width: none;
 }
