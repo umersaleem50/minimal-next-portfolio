@@ -41,6 +41,14 @@ export async function generateMetadata({
     title: `${project.companyName} | Case Study`,
     description: project.shortDescription,
     alternates: { canonical: `${siteConfig.url}/projects/${projectId}` },
+    openGraph: {
+      type: "article",
+      url: `${siteConfig.url}/projects/${projectId}`,
+      title: `${project.companyName} | Case Study`,
+      description: project.shortDescription,
+      siteName: siteConfig.shortName,
+      images: [siteConfig.ogImage],
+    },
   };
 }
 
