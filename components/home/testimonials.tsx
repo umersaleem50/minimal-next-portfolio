@@ -1,10 +1,12 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
+import { ArrowLeft, ArrowRight, MoveHorizontal, Quote } from "lucide-react";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
+
+const DRAG_CLICK_THRESHOLD = 5;
 
 interface Testimonial {
   quote: string;
@@ -95,6 +97,37 @@ function Avatar({
 
 export function Testimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const [dragging, setDragging] = useState(false);
+  const drag = useRef({ startX: 0, startScroll: 0, moved: 0, down: false });
+
+  const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "mouse" || event.button !== 0) return;
+    const track = trackRef.current;
+    if (!track) return;
+    drag.current = { startX: event.clientX, startScroll: track.scrollLeft, moved: 0, down: true };
+    setDragging(true);
+  };
+
+  const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const track = trackRef.current;
+    if (!track) return;
+    if (cursorRef.current) {
+      const rect = track.getBoundingClientRect();
+      cursorRef.current.style.transform = `translate(${event.clientX - rect.left}px, ${event.clientY - rect.top}px) translate(-50%, -50%)`;
+    }
+    if (!drag.current.down) return;
+    const delta = event.clientX - drag.current.startX;
+    drag.current.moved = Math.max(drag.current.moved, Math.abs(delta));
+    track.scrollLeft = drag.current.startScroll - delta;
+  };
+
+  const endDrag = () => {
+    if (!drag.current.down) return;
+    drag.current.down = false;
+    setDragging(false);
+  };
+
   const slide = (direction: number) => {
     trackRef.current?.scrollBy({
       left: direction * Math.min(trackRef.current.clientWidth * 0.86, 520),
@@ -136,8 +169,27 @@ export function Testimonials() {
         </div>
 
         <div
+          className="group/slider relative"
+          onMouseLeave={endDrag}
+        >
+        <div
           ref={trackRef}
-          className="testimonial-track -mr-5 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-5 sm:-mr-8 lg:-mr-12"
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={endDrag}
+          onPointerCancel={endDrag}
+          onClickCapture={(event) => {
+            if (drag.current.moved > DRAG_CLICK_THRESHOLD) {
+              event.preventDefault();
+              event.stopPropagation();
+              drag.current.moved = 0;
+            }
+          }}
+          onDragStart={(event) => event.preventDefault()}
+          className={cn(
+            "testimonial-track -mr-5 flex gap-5 overflow-x-auto pb-5 sm:-mr-8 lg:-mr-12 md:cursor-grab",
+            dragging ? "cursor-grabbing select-none" : "snap-x snap-mandatory"
+          )}
         >
           {testimonials.map((testimonial, index) => (
             <article
@@ -166,6 +218,21 @@ export function Testimonials() {
               </div>
             </article>
           ))}
+        </div>
+        <div
+          ref={cursorRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute left-0 top-0 z-10 hidden md:block"
+        >
+          <div
+            className={cn(
+              "grid h-16 w-16 place-items-center rounded-full bg-white/90 text-slate-950 opacity-0 shadow-lg backdrop-blur transition-[opacity,scale] duration-200 group-hover/slider:opacity-100",
+              dragging && "scale-90"
+            )}
+          >
+            <MoveHorizontal className="h-6 w-6" />
+          </div>
+        </div>
         </div>
 
         <div className="mt-5 flex gap-3 sm:hidden">

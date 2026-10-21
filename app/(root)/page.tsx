@@ -83,7 +83,7 @@ export default function IndexPage() {
         title="The journey that shaped me."
         description={pagesConfig.experience.description}
       >
-        <ExperienceTimeline experiences={experiences} />
+        <ExperienceTimeline experiences={experiences.reverse()} />
       </HomeSection>
       <Portfolio
         projects={portfolioProjects}
