@@ -25,6 +25,7 @@ export interface ProjectInterface {
   startDate: Date;
   endDate: Date;
   companyLogoImg: any;
+  pageThumbnail?: string;
   descriptionDetails: DescriptionDetailsInterface;
   pagesInfoArr: PagesInfoInterface[];
   results?: {
@@ -172,36 +173,37 @@ export const Projects: ProjectInterface[] = [
     startDate: new Date("2021-07-01"),
     endDate: new Date("2022-07-01"),
     companyLogoImg: "/projects/copped/thumbnail.jpg",
+    pageThumbnail: "/projects/copped/page-thumbnail.jpg",
     pagesInfoArr: [
       {
         title: "Database & Storage Setup",
         description:
           "I configured Supabase as the backend for the client's iOS app, setting up the database schema and storage buckets to save user data and uploaded images.",
-        imgArr: ["/projects/copped/CoppedAi.png"],
+        imgArr: ["/projects/copped/mockup.jpg"],
       },
       {
         title: "Product Search via SERP API",
         description:
           "I wrote edge functions that call the SERP API to search for products matching an image or query, giving the app a way to surface similar items to users.",
-        imgArr: ["/projects/copped/mockup3.png"],
+        imgArr: ["/projects/copped/mockup2.jpg"],
       },
       {
         title: "Storage Buckets",
         description:
           "I set up and secured storage buckets for user-uploaded files, with access rules scoped so each user could only read and write their own data.",
-        imgArr: ["/projects/copped/CoppedAi.png"],
+        imgArr: ["/projects/copped/mockup4.jpg"],
       },
       {
         title: "Edge Functions",
         description:
           "I built and deployed the Supabase edge functions that handled the SERP API integration and other backend logic the app relied on.",
-        imgArr: ["/projects/copped/CoppedAi.png"],
+        imgArr: ["/projects/copped/mockup3.jpg"],
       },
       {
         title: "iOS Integration",
         description:
           "I worked closely with the iOS developer to wire up the app against the Supabase backend, making sure data, storage, and the search feature worked end-to-end.",
-        imgArr: ["/projects/copped/CoppedAi.png"],
+        imgArr: ["/projects/copped/mockup5.jpg"],
       },
     ],
     descriptionDetails: {
@@ -228,39 +230,29 @@ export const Projects: ProjectInterface[] = [
     shortDescription:
       "Built and tested multiple Android apps at Entegrators, then moved them all into a Gradle multi-module monorepo with a GitHub Actions pipeline that built only the affected apps and reported builds to Discord.",
     techStack: ["Kotlin", "Git", "CI/CD"],
-    startDate: new Date("2021-07-14"),
-    endDate: new Date("2022-07-01"),
+    startDate: new Date("2026-06-14"),
+    endDate: new Date("2026-11-01"),
     companyLogoImg: "/projects/entegrators/logo.jpg",
+    pageThumbnail: "/projects/entegrators/entegrators.jpg",
     pagesInfoArr: [
       {
         title: "Android App Development",
         description:
           "I developed and tested several of Entegrators' Android apps in Kotlin, working across multiple codebases for the team.",
-        imgArr: ["/projects/entegrators/mockup.png"],
+        imgArr: ["/projects/entegrators/thumbnail2.jpg"],
       },
-      {
-        title: "Multi-Repo to Monorepo Migration",
-        description:
-          "I migrated all of Entegrators' Android apps out of separate repos into a single monorepo, restructuring and configuring each app along the way.",
-        imgArr: ["/projects/entegrators/mockup2.png"],
-      },
+
       {
         title: "Gradle Multi-Module Setup",
         description:
           "I set up the monorepo as a Gradle multi-module project, pushed it to GitHub, and got every app building cleanly from the shared structure.",
-        imgArr: [],
+        imgArr: ["/projects/entegrators/thumbnail1.jpg"],
       },
       {
         title: "GitHub Actions CI Pipeline",
         description:
           "I built a CI pipeline in GitHub Actions that detected which apps were affected by a change and only built those, instead of rebuilding the whole monorepo every time.",
-        imgArr: [],
-      },
-      {
-        title: "Discord Build Notifications",
-        description:
-          "With help from my senior, I integrated the pipeline with Discord bots so the team got notified about new app builds as soon as they went out.",
-        imgArr: [],
+        imgArr: ["/projects/entegrators/thumbnail3.jpg"],
       },
     ],
     descriptionDetails: {
