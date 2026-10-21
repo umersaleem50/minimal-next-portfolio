@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Icons } from "@/components/common/icons";
 
 const partners = [
-  { name: "Solinovation", logo: "/experience/keys-logo.png" },
-  { name: "Muze AI", logo: "/experience/muzeai-logo.png" },
-  { name: "Builtdesign", logo: "/experience/builtdesign-logo.png" },
+  { name: "Cayus AI", logo: "/logos/cayus.png" },
+  { name: "SG Tools", logo: "/logos/sgtools.png" },
+  { name: "Builtdesign", logo: "/logos/copped.png" },
 ];
 
 const stats = [
