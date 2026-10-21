@@ -131,6 +131,7 @@ export default async function Project({ params }: ProjectPageProps) {
           >
             <Image
               src={
+                project.pageThumbnail ||
                 project.pagesInfoArr.at(0)?.imgArr.at(0) ||
                 project.companyLogoImg
               }
