@@ -223,7 +223,7 @@ export const Projects: ProjectInterface[] = [
     },
   },
   {
-    id: "apex-shopping",
+    id: "entegrators",
     companyName: "Entegrators",
     type: "Professional",
     category: ["Android Dev", "Mobile Dev", "Backend"],
