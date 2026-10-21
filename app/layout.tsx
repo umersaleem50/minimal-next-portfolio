@@ -41,14 +41,18 @@ export const metadata = {
       url: siteConfig.url,
     },
   ],
-  creator: siteConfig.username,
+  creator: siteConfig.authorName,
+  publisher: siteConfig.authorName,
+  applicationName: siteConfig.shortName,
+  category: "technology",
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
-    siteName: siteConfig.name,
+    siteName: siteConfig.shortName,
     images: [
       {
         url: siteConfig.ogImage,
@@ -62,24 +66,17 @@ export const metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-    creator: `@${siteConfig.username}`,
+    images: [siteConfig.ogImage],
   },
   icons: {
     icon: siteConfig.iconIco,
     shortcut: siteConfig.logoIcon,
     apple: siteConfig.logoIcon,
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: "/manifest.webmanifest",
   alternates: {
-    canonical: siteConfig.url,
+    canonical: "/",
+    types: { "text/plain": "/llms.txt" },
   },
   robots: {
     index: true,
@@ -89,6 +86,7 @@ export const metadata = {
       follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
   verification: {

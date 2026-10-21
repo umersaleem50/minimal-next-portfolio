@@ -18,9 +18,8 @@ import { siteConfig } from "@/config/site";
 import { getFeaturedBlogs } from "@/lib/blogs";
 
 export const metadata: Metadata = {
-  title: `${pagesConfig.home.metadata.title}`,
-  description:
-    "Naman Barkiya - Applied AI Engineer working at the intersection of AI, data, and scalable software systems. Explore my projects, experience, and contributions.",
+  title: { absolute: siteConfig.name },
+  description: siteConfig.description,
   alternates: {
     canonical: siteConfig.url,
   },
@@ -35,28 +34,21 @@ export default function IndexPage() {
     "@type": "Person",
     name: siteConfig.authorName,
     url: siteConfig.url,
-    image: siteConfig.ogImage,
-    jobTitle: "Applied AI Engineer",
+    image: `${siteConfig.url}/profile-img.png`,
+    email: siteConfig.email,
+    jobTitle: siteConfig.jobTitle,
+    description: siteConfig.description,
     sameAs: [siteConfig.links.github, siteConfig.links.twitter],
   };
 
-  // Structured data for website as a software application (template)
-  const softwareSchema = {
+  const websiteSchema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Next.js Portfolio Template",
-    applicationCategory: "DeveloperApplication",
-    operatingSystem: "Web",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-    author: {
-      "@type": "Person",
-      name: siteConfig.authorName,
-      url: siteConfig.url,
-    },
+    "@type": "WebSite",
+    name: siteConfig.shortName,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    inLanguage: "en",
+    author: { "@type": "Person", name: siteConfig.authorName },
   };
 
   return (
@@ -67,9 +59,9 @@ export default function IndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
       <Script
-        id="schema-software"
+        id="schema-website"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       {/* Attention */}
       <EditorialHero />
