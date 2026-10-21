@@ -26,33 +26,50 @@ const avatarGradients = [
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Umar is responsible and finishes tasks when he says he will. Even though he did not work under pressure or strict deadlines while collaborating with me on open source projects, he always delivered what he promised on time. He has a good understanding of React and Next.js.",
+      "Umar is **responsible and finishes tasks when he says he will**. Even though he did not work under pressure or strict deadlines while collaborating with me on open source projects, he **always delivered what he promised on time**. He has a **good understanding of React and Next.js**.",
     name: "Filip Trivan",
     role: "CTO @ Stridon Groups",
     avatar: "/clients/filip-trivan.jpg",
   },
   {
     quote:
-      "Umar Saleem y Samar Rian trabajaron juntos para crear un sitio web robusto y escalables, utilizando las mejores practica. Crearon un diseño para mejorar las conversaciones e integraron un CMS sin interfaz (Sanity.io) en mi sitio web. Me encantó trabajar con ellos, la comunicación fue clara. Muy recomendable",
+      "Umar Saleem y Samar Rian trabajaron juntos para crear un **sitio web robusto y escalables**, utilizando las mejores practica. Crearon un diseño para mejorar las conversaciones e integraron un CMS sin interfaz (Sanity.io) en mi sitio web. **Me encantó trabajar con ellos**, la comunicación fue clara. **Muy recomendable**",
     name: "Antonio Moreno",
     role: "Software Architech & AI Specialist",
     avatar: "/clients/antonio-moreno.jpg",
   },
   {
     quote:
-      "Had a great experience working with Umer on setting up our app’s backend using Supabase. He came in with a strong grasp of the stack, got things running smoothly, and made sure everything was well-documented and reliable. Communication was clear and fast.",
+      "Had a great experience working with Umer on setting up our app’s backend using Supabase. He came in with a **strong grasp of the stack**, got things running smoothly, and made sure everything was **well-documented and reliable**. **Communication was clear and fast**.",
     name: "Saamir Shamsie",
     role: "Founder @ Copped AI",
     avatar: "/clients/saamir-shamsie.jpg",
   },
   {
     quote:
-      "I had the pleasure of working with Umer on an app project where he handled the backend development, and I’d gladly recommend him to others and will also work with him in the future. He built a solid and efficient backend while also tackling tricky technical challenges that kept everything running smoothly.",
+      "I had the pleasure of working with Umer on an app project where he handled the backend development, and I’d **gladly recommend him** to others and will also work with him in the future. He built a **solid and efficient backend** while also tackling **tricky technical challenges** that kept everything running smoothly.",
     name: "Nisa Fatima",
     role: "iOS Developer",
     avatar: "/clients/nisa-fatima.jpg",
   },
 ];
+
+// Phrases wrapped in **double asterisks** get the wavy gradient underline.
+function Highlighted({ text }: { text: string }) {
+  return (
+    <>
+      {text.split("**").map((part, i) =>
+        i % 2 ? (
+          <span key={i} className="wavy-underline">
+            {part}
+          </span>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
 
 const initials = (name: string) =>
   name
@@ -201,7 +218,7 @@ export function Testimonials() {
                 aria-hidden="true"
               />
               <blockquote className="mb-10 mt-12 line-clamp-8 font-serif text-md italic leading-[1.45] text-slate-100 sm:text-2xl">
-                “{testimonial.quote}”
+                “<Highlighted text={testimonial.quote} />”
               </blockquote>
               <div className="mt-auto flex items-center gap-4 border-t border-white/10 pt-6">
                 <Avatar
