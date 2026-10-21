@@ -1,5 +1,5 @@
 import { MainNav } from "@/components/common/main-nav";
-import FooterModule from "@/components/new-blogs/footer";
+import FooterModule from "@/components/footer";
 import { routesConfig } from "@/config/routes";
 
 interface MarketingLayoutProps {
