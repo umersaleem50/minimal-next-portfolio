@@ -6,10 +6,9 @@ import { ContributionGrid } from "@/components/contributions/contribution-grid";
 import { ExperienceTimeline } from "@/components/experience/experience-timeline";
 import { ContactSection } from "@/components/home/contact-section";
 import { EditorialHero } from "@/components/home/editorial-hero";
-import { HomeSection, ViewAllLink } from "@/components/home/home-section";
+import { HomeSection } from "@/components/home/home-section";
 import { Services } from "@/components/home/services";
 import { Testimonials } from "@/components/home/testimonials";
-import BlogsModule from "@/components/new-blogs/blogs";
 import { Portfolio } from "@/components/portfolio/portfolio";
 import { featuredContributions } from "@/config/contributions";
 import { experiences } from "@/config/experience";
@@ -83,7 +82,6 @@ export default function IndexPage() {
         eyebrow={pagesConfig.experience.title}
         title="The journey that shaped me."
         description={pagesConfig.experience.description}
-        actions={<ViewAllLink href="/experience" tone="dark" />}
       >
         <ExperienceTimeline experiences={experiences} />
       </HomeSection>
@@ -101,11 +99,10 @@ export default function IndexPage() {
         eyebrow={pagesConfig.contributions.title}
         title="Giving back to the community that raised me"
         description={pagesConfig.contributions.description}
-        actions={<ViewAllLink href="/contributions" />}
       >
         <ContributionGrid contributions={featuredContributions} />
       </HomeSection>
-      <HomeSection
+      {/*<HomeSection
         id="blogs"
         tone="dark"
         eyebrow={pagesConfig.blogs.title}
@@ -114,7 +111,7 @@ export default function IndexPage() {
         actions={<ViewAllLink href="/blogs" tone="dark" />}
       >
         <BlogsModule posts={featuredBlogs} author={blogAuthor} />
-      </HomeSection>
+      </HomeSection>*/}
 
       {/* Action */}
       <ContactSection />

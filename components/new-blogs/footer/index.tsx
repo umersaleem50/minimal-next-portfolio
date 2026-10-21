@@ -24,7 +24,7 @@ function FooterModule({ metaData, socialLinks }: FooterProps) {
           </div>
           <div className="md:col-span-2 md:text-right">
             <Link
-              href="/contact"
+              href="/#contact"
               className="group inline-flex h-14 items-center gap-2 rounded-full bg-white px-7 font-semibold text-slate-950 transition hover:bg-emerald-200"
             >
               Start a project

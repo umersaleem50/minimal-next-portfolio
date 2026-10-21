@@ -158,19 +158,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           </div>
         </div>
       </div>
-      <div className="mt-3 sm:mt-4 flex justify-end">
-        <Button
-          variant="outline"
-          size="sm"
-          className={cn("w-full sm:w-auto", styles.button)}
-          asChild
-        >
-          <Link href={`/experience/${experience.id}`}>
-            View Details
-            <Icons.chevronRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-      </div>
     </div>
   );
 };

@@ -94,17 +94,6 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                   </p>
                 </div>
               </div>
-              <Button
-                variant="outline"
-                size="sm"
-                className="rounded-lg w-full sm:w-auto"
-                asChild
-              >
-                <Link href={`/experience/${experience.id}`}>
-                  View Details
-                  <Icons.chevronRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
             </div>
           </div>
         </AnimatedSection>

@@ -1,16 +1,23 @@
 "use client";
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef, useState } from "react";
+import { ArrowLeft, ArrowRight, MoveHorizontal } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 import { HomeSection } from "@/components/home/home-section";
 import { cn } from "@/lib/utils";
 import { PortfolioCard } from "./portfolio-card";
 import { PortfolioProps } from "./types";
 
+const AUTOPLAY_MS = 5000;
+const DRAG_CLICK_THRESHOLD = 5;
+
 export function Portfolio({ projects, eyebrow, title, description }: PortfolioProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [dragging, setDragging] = useState(false);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const drag = useRef({ startX: 0, startScroll: 0, moved: 0, down: false });
 
   const goTo = (index: number) => {
     const track = trackRef.current;
@@ -21,6 +28,51 @@ export function Portfolio({ projects, eyebrow, title, description }: PortfolioPr
 
   const slide = (direction: number) =>
     goTo((active + direction + projects.length) % projects.length);
+
+  // Advance automatically after a brief moment, unless the user is interacting.
+  useEffect(() => {
+    if (paused || dragging || projects.length < 2) return;
+    const timer = setTimeout(() => slide(1), AUTOPLAY_MS);
+    return () => clearTimeout(timer);
+  });
+
+  const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "mouse" || event.button !== 0) return;
+    const track = trackRef.current;
+    if (!track) return;
+    drag.current = { startX: event.clientX, startScroll: track.scrollLeft, moved: 0, down: true };
+    setDragging(true);
+  };
+
+  const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const cursor = cursorRef.current;
+    const track = trackRef.current;
+    if (cursor && track) {
+      const rect = track.getBoundingClientRect();
+      cursor.style.transform = `translate(${event.clientX - rect.left}px, ${event.clientY - rect.top}px) translate(-50%, -50%)`;
+    }
+    if (!drag.current.down || !track) return;
+    const delta = event.clientX - drag.current.startX;
+    drag.current.moved = Math.max(drag.current.moved, Math.abs(delta));
+    track.scrollLeft = drag.current.startScroll - delta;
+  };
+
+  const endDrag = () => {
+    const track = trackRef.current;
+    if (!drag.current.down || !track) return;
+    drag.current.down = false;
+    setDragging(false);
+    goTo(Math.min(projects.length - 1, Math.max(0, Math.round(track.scrollLeft / track.clientWidth))));
+  };
+
+  // A drag shouldn't count as a click on the case study link underneath.
+  const onClickCapture = (event: React.MouseEvent) => {
+    if (drag.current.moved > DRAG_CLICK_THRESHOLD) {
+      event.preventDefault();
+      event.stopPropagation();
+      drag.current.moved = 0;
+    }
+  };
 
   const onScroll = () => {
     const track = trackRef.current;
@@ -54,9 +106,28 @@ export function Portfolio({ projects, eyebrow, title, description }: PortfolioPr
       }
     >
       <div
+        className="group/slider relative"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => {
+          setPaused(false);
+          endDrag();
+        }}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+      >
+      <div
         ref={trackRef}
         onScroll={onScroll}
-        className="testimonial-track relative flex snap-x snap-mandatory overflow-x-auto"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onClickCapture={onClickCapture}
+        onDragStart={(event) => event.preventDefault()}
+        className={cn(
+          "testimonial-track relative flex overflow-x-auto md:cursor-grab",
+          dragging ? "cursor-grabbing select-none" : "snap-x snap-mandatory",
+        )}
       >
         {projects.map((project, index) => (
           <div key={project.id} className="w-full shrink-0 snap-start px-1">
@@ -67,6 +138,21 @@ export function Portfolio({ projects, eyebrow, title, description }: PortfolioPr
             />
           </div>
         ))}
+      </div>
+      <div
+        ref={cursorRef}
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 top-0 z-10 hidden md:block"
+      >
+        <div
+          className={cn(
+            "grid h-16 w-16 place-items-center rounded-full bg-slate-950/85 text-white opacity-0 shadow-lg backdrop-blur transition-[opacity,scale] duration-200 group-hover/slider:opacity-100",
+            dragging && "scale-90",
+          )}
+        >
+          <MoveHorizontal className="h-6 w-6" />
+        </div>
+      </div>
       </div>
 
       <div className="mt-10 flex items-center gap-2 border-t border-slate-200 pt-8">
