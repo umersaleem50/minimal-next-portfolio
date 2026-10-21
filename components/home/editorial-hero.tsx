@@ -57,16 +57,8 @@ export function EditorialHero() {
               href="/#contact"
               className="hero-gradient-button inline-flex h-12 items-center rounded-full px-6 font-semibold text-slate-950 shadow-[0_12px_35px_-14px_rgba(226,70,190,0.8)] transition hover:-translate-y-0.5 hover:shadow-lg"
             >
-              Build your product
+              Contact Me
               <Icons.arrowRight className="ml-2 h-4 w-4" />
-            </Link>
-            <Link
-              href="/resume"
-              target="_blank"
-              className="inline-flex h-12 items-center gap-2 rounded-full border border-slate-300 px-6 font-semibold text-slate-900 transition hover:bg-slate-950 hover:text-white"
-            >
-              <Icons.post className="h-4 w-4" />
-              View resume
             </Link>
           </div>
         </div>
