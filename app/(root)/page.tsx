@@ -15,7 +15,6 @@ import { experiences } from "@/config/experience";
 import { pagesConfig } from "@/config/pages";
 import { portfolioProjects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
-import { getFeaturedBlogs } from "@/lib/blogs";
 
 export const metadata: Metadata = {
   title: { absolute: siteConfig.name },
@@ -26,8 +25,6 @@ export const metadata: Metadata = {
 };
 
 export default function IndexPage() {
-  const featuredBlogs = getFeaturedBlogs();
-  const blogAuthor = { name: "Umar Saleem", image: "/umar-standing.png" };
   // Structured data for personal portfolio
   const personSchema = {
     "@context": "https://schema.org",
@@ -94,16 +91,6 @@ export default function IndexPage() {
       >
         <ContributionGrid contributions={featuredContributions} />
       </HomeSection>
-      {/*<HomeSection
-        id="blogs"
-        tone="dark"
-        eyebrow={pagesConfig.blogs.title}
-        title="Notes from building in public."
-        description={pagesConfig.blogs.description}
-        actions={<ViewAllLink href="/blogs" tone="dark" />}
-      >
-        <BlogsModule posts={featuredBlogs} author={blogAuthor} />
-      </HomeSection>*/}
 
       {/* Action */}
       <ContactSection />
